@@ -73,12 +73,16 @@ a {
 /* Navbar */
 
 nav {
-  display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 0 104px;
-  height: 80px;
   background-color: var(--black);
+  display: flex;
+  height: 80px;
+  justify-content: space-between;
+  left: 0;
+  padding: 0 104px;
+  position: fixed;
+  right: 0;
+  z-index: 1000;
 }
 nav h1 span {
   color: var(--green);
@@ -116,4 +120,50 @@ nav ul li::after {
 }
 nav ul li:hover::after {
   width: 100%;
+}
+/* Hero section */
+#hero {
+  width: 100%;
+  height: 100vh;
+  background-image: url(images/bg\ new\ ts.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 104px;
+  color: var(--white);
+}
+.typo {
+  display: flex;
+  flex-direction: column;
+}
+.typo h1 {
+  margin: 20px 0;
+}
+.typo p {
+  font-size: 24px;
+  color: var(--gray) !important;
+  margin-bottom: 16px;
+}
+.icons-container {
+  margin-top: 40px;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+.icon-circle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #495057;
+}
+.icon-circle:hover {
+  background-color: var(--green);
+  transition: all 0.4s ease-in-out;
 }
