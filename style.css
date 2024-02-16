@@ -262,3 +262,42 @@ nav ul li:hover::after {
 .skill-item:hover {
   background: rgba(255, 255, 255, 0.2);
 }
+/* Services section */
+.service-cards-container {
+  margin-top: 35px;
+  display: grid;
+  grid-template-columns: repeat(3, 355px);
+  column-gap: 10px;
+}
+.services-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 80px 20px;
+  background: var(--lighterblack);
+  border-radius: 8px;
+  transition: all 0.4s ease-in-out;
+}
+.services-card:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+.card-icon-container {
+  width: 64px;
+  height: 64px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--green);
+}
+.card-icon-container .icon {
+  color: var(--white);
+  font-size: 24px;
+}
+.services-card-info {
+  text-align: center;
+}
+.services-card-info h3 {
+  margin: 18px;
+}
