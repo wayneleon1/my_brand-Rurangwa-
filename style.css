@@ -45,15 +45,17 @@ h3 {
 p {
   font-size: 16px;
   font-weight: 400;
+  color: white;
 }
 a {
   color: inherit;
   text-decoration: none;
 }
 .wrap {
-  margin: 0 104px;
+  margin: 20px 104px;
   background: var(--black);
   padding: 30px;
+  height: auto;
 }
 .btn {
   padding: 8px 16px;
@@ -166,4 +168,78 @@ nav ul li:hover::after {
 .icon-circle:hover {
   background-color: var(--green);
   transition: all 0.4s ease-in-out;
+}
+
+/* ABOUT section */
+#About {
+  display: flex;
+  flex-direction: column;
+}
+.title-name {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-bottom: 10px;
+}
+.title-name p {
+  color: var(--gray);
+  font-size: 18px;
+}
+.title-name span {
+  width: 120px;
+  height: 2px;
+  background-color: var(--green);
+  display: inline-block;
+}
+.personal {
+  display: flex;
+  margin-top: 35px;
+}
+.personal-img {
+  flex: 1;
+  height: 390px;
+}
+.personal-img img {
+  width: 100%;
+  height: 100%;
+  background-position: center;
+  object-fit: cover;
+}
+.personal-info {
+  flex: 2;
+  padding: 20px;
+}
+.personal-info-title h2 {
+  color: var(--green);
+  margin-bottom: 10px;
+}
+.personal-info-title p {
+  font-size: 14px;
+}
+.personal-info-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin: 24px 0;
+}
+.details-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.detail-item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.next {
+  color: var(--green);
+}
+.detail-item span {
+  color: var(--gray);
+  margin-left: 5px;
+}
+
+.personal-info-desc p {
+  font-size: 14px;
 }
