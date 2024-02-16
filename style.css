@@ -63,12 +63,11 @@ a {
   border: none;
   outline: none;
   border-radius: 8px;
+  cursor: pointer;
   transition: all 0.4s ease-in-out;
 }
 .btn:hover {
-  background-color: var(--white);
-  color: var(--green);
-  border: 1px solid var(--green);
+  opacity: 0.9;
 }
 
 /* Navbar */
@@ -93,9 +92,28 @@ nav ul {
   display: flex;
   gap: 20px;
 }
-nav ul li {
-}
 nav ul li a {
   color: var(--white);
   font-size: 16px;
+  transition: color 0.4s ease-in-out;
+}
+nav ul li a:hover {
+  color: var(--gray);
+}
+
+nav ul li {
+  position: relative;
+}
+nav ul li::after {
+  background-color: #18d26e;
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 0;
+  height: 4px;
+  transition: all 0.4s ease-in-out;
+}
+nav ul li:hover::after {
+  width: 100%;
 }
