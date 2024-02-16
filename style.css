@@ -191,6 +191,7 @@ nav ul li:hover::after {
   background-color: var(--green);
   display: inline-block;
 }
+/* personal Details */
 .personal {
   display: flex;
   margin-top: 35px;
@@ -242,4 +243,22 @@ nav ul li:hover::after {
 
 .personal-info-desc p {
   font-size: 14px;
+}
+/* Personal skills */
+.skills-container {
+  display: grid;
+  grid-template-columns: repeat(4, 252px);
+  column-gap: 25px;
+  row-gap: 20px;
+}
+.skill-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--lighterblack);
+  padding: 20px;
+  transition: all 0.4s ease-in-out;
+}
+.skill-item:hover {
+  background: rgba(255, 255, 255, 0.2);
 }
