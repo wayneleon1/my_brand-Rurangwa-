@@ -535,7 +535,7 @@ textarea:focus {
 .signin-form {
   background-color: #000000e6;
   width: 500px;
-  height: 350px;
+
   padding: 40px 30px;
   position: relative;
 }
@@ -747,5 +747,15 @@ textarea:focus {
   .single-blog-titles h2 {
     font-size: 22px;
     text-align: center;
+  }
+  /* sign in page */
+  .signin-container {
+    padding: 20px;
+  }
+  .signin-form {
+    padding: 20px;
+  }
+  .input-group {
+    gap: 15px;
   }
 }
