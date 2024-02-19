@@ -677,15 +677,30 @@ textarea:focus {
   margin-bottom: 20px;
 }
 
-/*  Big Tablet Version */
-@media screen and (max-width: 1050px) {
-}
 /* Tablet Version */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1050px) {
+  .wrap {
+    margin: 60px 0;
+  }
+  #hero {
+    padding: 0 60px;
+    background-position: 75%;
+  }
+  nav {
+    display: none;
+  }
+  .service-cards-container,
+  .portfolio-box-container,
+  .blogs-container,
+  .contact-address,
+  .skills-container {
+    grid-template-columns: 1fr;
+    row-gap: 20px;
+  }
 }
 
 /* Mobile Version */
-@media screen and (max-width: 550px) {
+@media screen and (max-width: 768px) {
   .wrap {
     margin: 20px 0;
   }
@@ -693,7 +708,8 @@ textarea:focus {
     display: none;
   }
   #hero {
-    display: none;
+    padding: 0 30px;
+    background-position: 75%;
   }
   .personal {
     flex-direction: column;
