@@ -28,7 +28,6 @@ html {
 }
 ::-webkit-scrollbar-thumb {
   background-color: var(--green);
-
 }
 body {
   position: relative;
@@ -678,6 +677,46 @@ textarea:focus {
   margin-bottom: 20px;
 }
 
-/* Mobile version */
+/*  Big Tablet Version */
+@media screen and (max-width: 1050px) {
+}
+/* Tablet Version */
 @media screen and (max-width: 768px) {
+}
+
+/* Mobile Version */
+@media screen and (max-width: 550px) {
+  .wrap {
+    margin: 20px 0;
+  }
+  nav {
+    display: none;
+  }
+  #hero {
+    display: none;
+  }
+  .personal {
+    flex-direction: column;
+  }
+  .personal-info {
+    padding: 0px;
+    margin-bottom: 20px;
+  }
+  .personal-info-details {
+    flex-direction: column;
+  }
+
+  .service-cards-container,
+  .portfolio-box-container,
+  .blogs-container,
+  .contact-address,
+  .skills-container {
+    grid-template-columns: 1fr;
+    row-gap: 20px;
+  }
+  .form-input-container .first-child {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
 }
