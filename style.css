@@ -701,6 +701,10 @@ textarea:focus {
 
 /* Mobile Version */
 @media screen and (max-width: 768px) {
+  h1 {
+    font-size: 30px;
+    font-weight: 700;
+  }
   .wrap {
     margin: 20px 0;
   }
@@ -734,5 +738,14 @@ textarea:focus {
     display: flex;
     flex-direction: column;
     gap: 15px;
+  }
+
+  /* Single Blog page */
+  .single-blog-wrap {
+    padding: 20px 30px 10px 30px;
+  }
+  .single-blog-titles h2 {
+    font-size: 22px;
+    text-align: center;
   }
 }
