@@ -20,7 +20,7 @@ html {
 }
 /* customize scroll bar */
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 5px;
   margin-left: 10px;
 }
 ::-webkit-scrollbar-track {
@@ -530,6 +530,7 @@ textarea:focus {
   height: 90vh;
   display: flex;
   flex-direction: column;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
 }
@@ -697,7 +698,7 @@ nav .toggle_Btn {
   border-radius: 8px;
   overflow: hidden;
   color: white;
-  transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition: height 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 .dropdown-menu li {
   padding: 0.7rem;
@@ -711,6 +712,23 @@ nav .toggle_Btn {
 
 /* Tablet Version */
 @media screen and (max-width: 1050px) {
+  nav {
+    padding: 0 30px;
+  }
+  nav h1 {
+    font-size: 26px;
+  }
+  nav ul,
+  .btn_container {
+    display: none;
+  }
+  nav .toggle_Btn {
+    display: block;
+  }
+  .dropdown-menu {
+    display: block;
+  }
+
   nav {
     padding: 0 30px;
   }
