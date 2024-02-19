@@ -18,6 +18,17 @@
 html {
   scroll-behavior: smooth;
 }
+/* customize scroll bar */
+::-webkit-scrollbar {
+  width: 10px;
+  margin-left: 10px;
+}
+::-webkit-scrollbar-track {
+  background-color: var(--black);
+}
+::-webkit-scrollbar-thumb {
+  background-color: var(--green);
+}
 body {
   position: relative;
   background-color: #101010;
@@ -664,4 +675,77 @@ textarea:focus {
   font-size: 14px;
   color: var(--gray);
   margin-bottom: 20px;
+}
+
+/* Tablet Version */
+@media screen and (max-width: 1050px) {
+  .wrap {
+    margin: 60px 0;
+  }
+  #hero {
+    padding: 0 60px;
+    background-position: 75%;
+  }
+  nav {
+    display: none;
+  }
+  .service-cards-container,
+  .portfolio-box-container,
+  .blogs-container,
+  .contact-address,
+  .skills-container {
+    grid-template-columns: 1fr;
+    row-gap: 20px;
+  }
+}
+
+/* Mobile Version */
+@media screen and (max-width: 768px) {
+  h1 {
+    font-size: 30px;
+    font-weight: 700;
+  }
+  .wrap {
+    margin: 20px 0;
+  }
+  nav {
+    display: none;
+  }
+  #hero {
+    padding: 0 30px;
+    background-position: 75%;
+  }
+  .personal {
+    flex-direction: column;
+  }
+  .personal-info {
+    padding: 0px;
+    margin-bottom: 20px;
+  }
+  .personal-info-details {
+    flex-direction: column;
+  }
+
+  .service-cards-container,
+  .portfolio-box-container,
+  .blogs-container,
+  .contact-address,
+  .skills-container {
+    grid-template-columns: 1fr;
+    row-gap: 20px;
+  }
+  .form-input-container .first-child {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  /* Single Blog page */
+  .single-blog-wrap {
+    padding: 20px 30px 10px 30px;
+  }
+  .single-blog-titles h2 {
+    font-size: 22px;
+    text-align: center;
+  }
 }
