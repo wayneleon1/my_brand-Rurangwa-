@@ -40,6 +40,10 @@ h4 {
   font-size: 20px;
   font-weight: 500;
 }
+h5 {
+  font-size: 18px;
+  font-weight: 500;
+}
 p {
   font-size: 16px;
   font-weight: 400;
@@ -71,16 +75,40 @@ a {
   grid-template-columns: 250px 1fr;
   grid-template-rows: 100vh;
 }
+/*Sidebar  */
 .sidebar {
   background-color: #000000;
 }
+/* Wrap Container */
 .wrap-container {
   background-color: #101010;
   display: grid;
   grid-template-rows: 80px 1fr;
 }
+/* Top Bar*/
 .topBar {
-  background-color: var(--gray);
+  background-color: var(--black);
+  padding: 20px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
+.topBar p {
+  font-size: 14px;
+  color: var(--gray);
+}
+.profile-img {
+  border: 2px solid var(--green);
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.profile-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+/* Wrap Content */
 .wrap-content {
 }
