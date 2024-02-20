@@ -79,6 +79,18 @@ a {
 .sidebar {
   background-color: #000000;
 }
+.logo_container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px;
+  margin: 10px;
+  background-color: var(--lighterblack);
+  border-radius: 8px;
+}
+.logo_container h3 span {
+  color: var(--green);
+}
 /* Wrap Container */
 .wrap-container {
   background-color: #101010;
