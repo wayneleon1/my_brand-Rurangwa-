@@ -66,13 +66,21 @@ a {
 
 /* Layout */
 .main-container {
+  color: var(--white);
   display: grid;
   grid-template-columns: 250px 1fr;
   grid-template-rows: 100vh;
 }
 .sidebar {
-  background-color: #18d26e;
+  background-color: #000000;
 }
 .wrap-container {
-  background-color: brown;
+  background-color: #101010;
+  display: grid;
+  grid-template-rows: 80px 1fr;
+}
+.topBar {
+  background-color: var(--gray);
+}
+.wrap-content {
 }
