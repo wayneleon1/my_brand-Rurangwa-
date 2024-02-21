@@ -193,7 +193,7 @@ a:is(:link, :active, :visited).active {
   justify-content: space-between;
 }
 .card-footer .card-num p {
-  font-size: 42px;
+  font-size: 36px;
   font-weight: 600;
 }
 .middle-top {
@@ -225,7 +225,7 @@ a:is(:link, :active, :visited).active {
   color: var(--gray);
   font-size: 14px;
 }
-/* Portfolio Manage */
+/* Global Table */
 .table-container {
   margin: 0 auto;
   margin-top: 20px;
