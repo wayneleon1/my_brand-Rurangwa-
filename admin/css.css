@@ -116,11 +116,11 @@ a:is(:link, :active, :visited).active {
   align-items: center;
   justify-content: flex-start;
   gap: 10px;
-  transition: background-color 0.4s ease-in-out;
+  transition: background-color 0.2s ease-in-out;
   cursor: pointer;
 }
 .tab-item:hover {
-  background-color: var(--green);
+  background-color: var(--lighterblack);
 }
 .tab-item.logout-nav {
   background-color: var(--lighterblack);
@@ -158,4 +158,41 @@ a:is(:link, :active, :visited).active {
 /* Wrap Content */
 .wrap-content {
   padding: 30px;
+}
+.pages-title h4 {
+  color: var(--gray);
+}
+
+/* Dashboard Page */
+.cards-container {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+.card {
+  padding: 15px;
+  height: auto;
+  background-color: var(--lighterblack);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.card-icon-container {
+  width: 38px;
+  height: auto;
+}
+.card-icon-container img {
+  width: 100%;
+  height: 100%;
+}
+.card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.card-footer .card-num p {
+  font-size: 42px;
+  font-weight: 600;
 }
