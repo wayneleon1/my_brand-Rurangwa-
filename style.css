@@ -21,6 +21,7 @@ html {
 /* customize scroll bar */
 ::-webkit-scrollbar {
   width: 5px;
+  width: 5px;
   margin-left: 10px;
 }
 ::-webkit-scrollbar-track {
@@ -728,6 +729,23 @@ nav .toggle_Btn {
     display: block;
   }
 
+  nav {
+    padding: 0 30px;
+  }
+  nav h1 {
+    font-size: 26px;
+  }
+  nav ul,
+  .btn_container {
+    display: none;
+  }
+  nav .toggle_Btn {
+    display: block;
+  }
+  .dropdown-menu {
+    display: block;
+  }
+
   .wrap {
     margin: 60px 0;
   }
@@ -754,6 +772,7 @@ nav .toggle_Btn {
   .wrap {
     margin: 20px 0;
   }
+
 
   #hero {
     padding: 0 30px;
