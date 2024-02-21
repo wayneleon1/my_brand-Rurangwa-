@@ -68,6 +68,12 @@ a {
   opacity: 0.9;
 }
 
+a:is(:link, :active, :visited).active {
+  margin-left: 10px;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+  background-color: var(--green);
+}
 /* Layout */
 .main-container {
   color: var(--white);
@@ -116,7 +122,9 @@ a {
 .tab-item:hover {
   background-color: var(--green);
 }
-
+.tab-item.logout-nav {
+  background-color: var(--lighterblack);
+}
 /* Wrap Container */
 .wrap-container {
   background-color: #101010;
