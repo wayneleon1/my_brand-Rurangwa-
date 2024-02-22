@@ -67,7 +67,20 @@ a {
 .btn:hover {
   opacity: 0.9;
 }
-
+.btn-cancer {
+  padding: 8px 16px;
+  color: var(--white);
+  font-size: 16px;
+  background-color: crimson;
+  border: none;
+  outline: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.4s ease-in-out;
+}
+.btn-cancer:hover {
+  opacity: 0.9;
+}
 a:is(:link, :active, :visited).active {
   margin-left: 10px;
   border-top-left-radius: 8px;
@@ -278,4 +291,56 @@ td i.fa-pen-to-square {
 }
 td i.fa-trash {
   color: #f24e1e;
+}
+/* Global Form*/
+.form-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.form-content-container {
+  margin-top: 30px;
+  padding: 30px;
+  border-radius: 8px;
+  background-color: var(--black);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.input-group {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+.input-group > div {
+  flex: 1;
+}
+.input-group-control {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.input-group-control label {
+  color: var(--white);
+  font-size: 16px;
+  font-weight: 500;
+}
+.input-group-control input,
+select {
+  font-size: 16px;
+  padding: 10px;
+  width: 100%;
+  border: none;
+  outline: none;
+  background-color: var(--lighterblack);
+}
+.input-group-control input:focus,
+select:focus {
+  outline: 1px solid var(--green);
+}
+.input-group-control input {
+  color: var(--white);
+}
+.input-group-control select {
+  color: var(--gray);
 }

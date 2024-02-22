@@ -89,6 +89,20 @@ a {
 .btn:hover {
   opacity: 0.9;
 }
+.btn-cancer {
+  padding: 8px 16px;
+  color: var(--white);
+  font-size: 16px;
+  background-color: crimson;
+  border: none;
+  outline: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.4s ease-in-out;
+}
+.btn-cancer:hover {
+  opacity: 0.9;
+}
 
 /* Navbar */
 
