@@ -142,6 +142,7 @@ a:is(:link, :active, :visited).active {
 .wrap-container {
   background-color: #101010;
   display: grid;
+  overflow-y: scroll;
   grid-template-rows: 80px 1fr;
 }
 /* Top Bar*/
@@ -326,8 +327,9 @@ td i.fa-trash {
   font-weight: 500;
 }
 .input-group-control input,
-select {
-  font-size: 16px;
+select,
+textarea {
+  font-size: 14px;
   padding: 10px;
   width: 100%;
   border: none;
@@ -335,10 +337,12 @@ select {
   background-color: var(--lighterblack);
 }
 .input-group-control input:focus,
-select:focus {
+select:focus,
+textarea:focus {
   outline: 1px solid var(--green);
 }
-.input-group-control input {
+.input-group-control input,
+textarea {
   color: var(--white);
 }
 .input-group-control select {

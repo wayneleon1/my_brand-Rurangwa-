@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="css.css" />
+    <title>Portfolio</title>
+  </head>
+  <body>
+    <!-- Main -->
+    <div class="main-container">
+      <!-- sidebar -->
+      <div class="sidebar">
+        <div class="logo_container">
+          <h3>Code<span>With</span>Leon</h3>
+        </div>
+        <div class="tab-container">
+          <a href="dashboard.html">
+            <div class="tab-item">
+              <div>
+                <img src="images/ant-design_dashboard-filled.svg" alt="" />
+              </div>
+              <div><h5>Dashboard</h5></div>
+            </div>
+          </a>
+          <a href="portfolio.html">
+            <div class="tab-item">
+              <div>
+                <img src="images/dashicons_portfolio.svg" alt="" />
+              </div>
+              <div><h5>Projects</h5></div>
+            </div>
+          </a>
+          <a href="blogs.html">
+            <div class="tab-item">
+              <div><img src="images/mdi_post-it-note-add.svg" alt="" /></div>
+              <div><h5>Blogs</h5></div>
+            </div>
+          </a>
+          <a href="messages.html">
+            <div class="tab-item">
+              <div><img src="images/Vector.svg" alt="" /></div>
+              <div><h5>Messages</h5></div>
+            </div>
+          </a>
+          <a href="users.html">
+            <div class="tab-item">
+              <div><img src="images/fa-solid_users.svg" alt="" /></div>
+              <div><h5>Users</h5></div>
+            </div>
+          </a>
+          <a href="/pages/signin.html">
+            <div class="tab-item logout-nav">
+              <div><img src="images/ic_baseline-logout.svg" alt="" /></div>
+              <div><h5>Logout</h5></div>
+            </div>
+          </a>
+        </div>
+      </div>
+      <!-- wrap container -->
+      <div class="wrap-container">
+        <!-- topBar -->
+        <div class="topBar">
+          <div>
+            <h5>Welcome Back Leon !</h5>
+            <p>20 February, 2024</p>
+          </div>
+          <div class="profile-img">
+            <img src="images/avatar-shanai.png" alt="Profile" />
+          </div>
+        </div>
+        <!-- wrap content -->
+        <div class="wrap-content">
+          <div class="row-container">
+            <div class="form-title">
+              <h3>Create new Blog</h3>
+            </div>
+
+            <form action="" class="form-content-container">
+              <div class="input-group">
+                <div class="input-group-control">
+                  <div>
+                    <label for="blogTitle">Blog Title</label>
+                  </div>
+                  <div>
+                    <input
+                      type="text"
+                      name=""
+                      id="blogTitle"
+                      placeholder="Enter your blog title"
+                    />
+                  </div>
+                </div>
+                <div class="input-group-control">
+                  <div><label for="category">Category</label></div>
+                  <div>
+                    <select name="" id="category">
+                      <option value="" disabled selected>
+                        Choose Category
+                      </option>
+                      <option value="Bussiness">Bussiness</option>
+                      <option value="Education">Education</option>
+                      <option value="Coding">Coding</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="input-group">
+                <div class="input-group-control">
+                  <div>
+                    <label for="blogContent">Blog Content</label>
+                  </div>
+                  <div>
+                    <textarea
+                      name=""
+                      id="blogContent"
+                      cols="30"
+                      rows="5"
+                    ></textarea>
+                  </div>
+                </div>
+              </div>
+              <div class="input-group">
+                <div class="input-group-control">
+                  <div>
+                    <label for="photo">Featured Image</label>
+                  </div>
+                  <div><input type="file" name="" id="photo" /></div>
+                </div>
+                <div class="input-group-control">
+                  <div><label for="status">Status</label></div>
+                  <div>
+                    <select name="" id="status">
+                      <option value="" disabled selected>Choose Status</option>
+                      <option value="Published">Published</option>
+                      <option value="Draft">Draft</option>
+                      <option value="Pending">Pending</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="input-group">
+                <div>
+                  <button class="btn">Add</button>
+                </div>
+                <div>
+                  <button class="btn-cancer" type="reset">Clear</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
