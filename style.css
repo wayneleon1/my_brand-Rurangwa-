@@ -268,7 +268,7 @@ nav ul li:hover::after {
 /* Personal skills */
 .skills-container {
   display: grid;
-  grid-template-columns: repeat(4, 252px);
+  grid-template-columns: repeat(4, 1fr);
   column-gap: 25px;
   row-gap: 20px;
 }
@@ -288,7 +288,7 @@ nav ul li:hover::after {
 .service-cards-container {
   margin-top: 35px;
   display: grid;
-  grid-template-columns: repeat(3, 355px);
+  grid-template-columns: repeat(3, 1fr);
   column-gap: 10px;
 }
 .services-card {
@@ -327,7 +327,7 @@ nav ul li:hover::after {
 .portfolio-box-container {
   margin-top: 35px;
   display: grid;
-  grid-template-columns: repeat(3, 345px);
+  grid-template-columns: repeat(3, 1fr);
   column-gap: 25px;
   row-gap: 20px;
 }
@@ -388,7 +388,7 @@ nav ul li:hover::after {
 .blogs-container {
   margin-top: 35px;
   display: grid;
-  grid-template-columns: repeat(3, 352px);
+  grid-template-columns: repeat(3, 1fr);
   column-gap: 20px;
   row-gap: 20px;
 }
@@ -449,7 +449,7 @@ nav ul li:hover::after {
 .contact-address {
   margin-top: 35px;
   display: grid;
-  grid-template-columns: repeat(2, 528px);
+  grid-template-columns: repeat(2, 1fr);
   column-gap: 30px;
   row-gap: 20px;
 }
@@ -773,7 +773,6 @@ nav .toggle_Btn {
     margin: 20px 0;
   }
 
-
   #hero {
     padding: 0 30px;
     background-position: 75%;
@@ -805,7 +804,7 @@ nav .toggle_Btn {
 
   /* Single Blog page */
   .single-blog-wrap {
-    padding: 20px 30px 10px 30px;
+    padding: 70px 30px 10px 30px;
   }
   .single-blog-titles h2 {
     font-size: 22px;

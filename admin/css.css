@@ -157,7 +157,7 @@ a:is(:link, :active, :visited).active {
 }
 /* Wrap Content */
 .wrap-content {
-  padding: 30px;
+  padding: 20px;
 }
 .pages-title h4 {
   color: var(--gray);
@@ -193,6 +193,89 @@ a:is(:link, :active, :visited).active {
   justify-content: space-between;
 }
 .card-footer .card-num p {
-  font-size: 42px;
+  font-size: 36px;
   font-weight: 600;
+}
+.middle-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+.search-container {
+  width: 400px;
+  border-radius: 8px;
+  display: flex;
+  gap: 10px;
+  padding: 10px 15px;
+  background-color: var(--lighterblack);
+}
+.search-icon i {
+  cursor: pointer;
+  color: var(--green);
+}
+.search-input-wrap {
+  flex: 1;
+}
+.search-input-wrap input {
+  background-color: transparent;
+  width: 100%;
+  border: none;
+  outline: none;
+  color: var(--gray);
+  font-size: 14px;
+}
+/* Global Table */
+.table-container {
+  margin: 0 auto;
+  margin-top: 20px;
+}
+.table-container table {
+  width: 100%;
+  text-align: left;
+  border-collapse: separate;
+  border-spacing: 0 0.6em;
+}
+.table-container thead th {
+  text-align: center;
+  font-weight: 500;
+  font-size: 16px;
+}
+td {
+  text-align: center;
+  color: var(--gray);
+  font-size: 14px;
+  padding: 5px;
+  font-weight: 400;
+}
+tbody .list {
+  background-color: var(--lighterblack);
+  transition: 0.3s ease-in-out;
+}
+tbody .list:hover {
+  transform: scale(1.02);
+}
+.t-image img {
+  width: 60px;
+  height: 40px;
+  background-position: center;
+  object-fit: contain;
+  border-radius: 8px;
+}
+.t-profile img {
+  width: 40px;
+  height: 40px;
+  background-position: center;
+  object-fit: contain;
+  border-radius: 50%;
+}
+td i {
+  cursor: pointer;
+  font-size: 18px;
+}
+td i.fa-pen-to-square {
+  color: #1abcfe;
+}
+td i.fa-trash {
+  color: #f24e1e;
 }
