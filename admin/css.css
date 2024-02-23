@@ -66,7 +66,7 @@ a {
   text-decoration: none;
 }
 .btn {
-  padding: 8px 16px;
+  padding: 12px 24px;
   color: var(--white);
   font-size: 16px;
   background-color: var(--green);
@@ -80,7 +80,7 @@ a {
   opacity: 0.9;
 }
 .btn-cancer {
-  padding: 8px 16px;
+  padding: 12px 24px;
   color: var(--white);
   font-size: 16px;
   background-color: crimson;
@@ -382,13 +382,17 @@ textarea {
 @media screen and (max-width: 768px) {
   .main-container {
     grid-template-columns: 1fr;
+    grid-template-rows: auto;
   }
   .sidebar {
-    display: none;
-    z-index: 100;
+    /* display: none; */
+    /* z-index: 100;
     top: 0;
     bottom: 0;
-    position: absolute;
+    position: absolute; */
+  }
+  .tab-container {
+    display: none;
   }
   .cards-container {
     grid-template-columns: repeat(1, 1fr);
