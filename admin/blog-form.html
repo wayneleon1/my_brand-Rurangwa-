@@ -75,81 +75,68 @@
         <div class="wrap-content">
           <div class="row-container">
             <div class="form-title">
-              <h3>Register new user</h3>
+              <h3>Create new Blog</h3>
             </div>
 
             <form action="" class="form-content-container">
               <div class="input-group">
                 <div class="input-group-control">
                   <div>
-                    <label for="firstName">First Name</label>
+                    <label for="blogTitle">Blog Title</label>
                   </div>
                   <div>
                     <input
                       type="text"
                       name=""
-                      id="firstName"
-                      placeholder="Enter First Name"
+                      id="blogTitle"
+                      placeholder="Enter your blog title"
                     />
                   </div>
                 </div>
                 <div class="input-group-control">
+                  <div><label for="category">Category</label></div>
                   <div>
-                    <label for="firstName">Last Name</label>
-                  </div>
-                  <div>
-                    <input
-                      type="text"
-                      name=""
-                      id="lastName"
-                      placeholder="Enter Last Name"
-                    />
+                    <select name="" id="category">
+                      <option value="" disabled selected>
+                        Choose Category
+                      </option>
+                      <option value="Bussiness">Bussiness</option>
+                      <option value="Education">Education</option>
+                      <option value="Coding">Coding</option>
+                    </select>
                   </div>
                 </div>
               </div>
               <div class="input-group">
                 <div class="input-group-control">
                   <div>
-                    <label for="password">Password</label>
+                    <label for="blogContent">Blog Content</label>
                   </div>
                   <div>
-                    <input
-                      type="Password"
+                    <textarea
                       name=""
-                      id="password"
-                      placeholder="Enter Password"
-                    />
-                  </div>
-                </div>
-                <div class="input-group-control">
-                  <div>
-                    <label for="email">Email</label>
-                  </div>
-                  <div>
-                    <input
-                      type="email"
-                      name=""
-                      id="email"
-                      placeholder="Enter  Email"
-                    />
+                      id="blogContent"
+                      cols="30"
+                      rows="5"
+                    ></textarea>
                   </div>
                 </div>
               </div>
               <div class="input-group">
                 <div class="input-group-control">
                   <div>
-                    <label for="photo">Profile Picture</label>
+                    <label for="photo">Featured Image</label>
                   </div>
                   <div><input type="file" name="" id="photo" /></div>
                 </div>
                 <div class="input-group-control">
-                  <div><label for="role">Role</label></div>
+                  <div><label for="status">Status</label></div>
                   <div>
-                    <select name="" id="role" aria-placeholder="Choose Role">
-                      <option value="" disabled selected>Choose Role</option>
-                      <option value="Editor">Editor</option>
-                      <option value="Admin">Admin</option>
-                      <option value="Subcribor">Subscriber</option>
+                    <select name="" id="status">
+                      <option value="" disabled selected>Choose Status</option>
+                      <option value="Published">Published</option>
+                      <option value="Draft">Draft</option>
+                      <option value="Pending">Pending</option>
                     </select>
                   </div>
                 </div>
