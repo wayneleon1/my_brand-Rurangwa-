@@ -390,6 +390,10 @@ textarea {
   .tab-container {
     margin-top: 5px;
     margin-bottom: 20px;
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+  .tab-container.open {
+    display: none;
   }
   .cards-container {
     grid-template-columns: repeat(1, 1fr);

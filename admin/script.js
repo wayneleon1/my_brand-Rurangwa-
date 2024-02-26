@@ -7,3 +7,9 @@ const sideLinks = document
       link.classList.add("active");
     }
   });
+
+const clickedBtn = document.querySelector(".logo_container");
+const tabContainer = document.querySelector(".tab-container");
+clickedBtn.onclick = function () {
+  tabContainer.classList.toggle("open");
+};
