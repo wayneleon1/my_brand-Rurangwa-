@@ -302,6 +302,9 @@ td i {
   cursor: pointer;
   font-size: 18px;
 }
+td i.fa-reply {
+  color: var(--green);
+}
 td i.fa-pen-to-square {
   color: #1abcfe;
 }
