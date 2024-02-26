@@ -550,6 +550,7 @@ textarea:focus {
 }
 .signin-form {
   background-color: #000000e6;
+  width: 500px;
   padding: 40px 30px;
   position: relative;
 }
