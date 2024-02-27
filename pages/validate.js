@@ -15,12 +15,12 @@ const setError = (element, message) => {
   inputControl.classList.remove("success");
 };
 
-const setSuccess = (element) => {
+const setError = (element, message) => {
   const inputControl = element.parentElement;
   const errorDisplay = inputControl.querySelector(".error");
-  errorDisplay.innerText = "";
-  inputControl.classList.add("success");
-  inputControl.classList.remove("error");
+  errorDisplay.innerText = message;
+  inputControl.classList.add("error");
+  inputControl.classList.remove("success");
 };
 const validateInputs = () => {
   let checkEmail =

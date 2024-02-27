@@ -12,6 +12,7 @@
     />
     <link rel="stylesheet" href="css.css" />
     <title>Portfolio</title>
+    <script defer src="js/validate_project.js"></script>
   </head>
   <body>
     <!-- Main -->
@@ -78,61 +79,63 @@
               <h3>Add new Project</h3>
             </div>
 
-            <form action="" class="form-content-container">
+            <form action="/" id="project-form" class="form-content-container">
               <div class="input-group">
                 <div class="input-group-control">
                   <div>
                     <label for="projectName">Project Name</label>
                   </div>
-                  <div>
-                    <input
-                      type="text"
-                      name=""
-                      id="projectName"
-                      placeholder="Enter your project name"
-                    />
-                  </div>
+
+                  <input
+                    type="text"
+                    name=""
+                    id="projectName"
+                    placeholder="Enter your project name"
+                  />
+
+                  <div class="error"></div>
                 </div>
                 <div class="input-group-control">
                   <div><label for="category">Category</label></div>
-                  <div>
-                    <select name="" id="category">
-                      <option value="" disabled selected>
-                        Choose Category
-                      </option>
-                      <option value="Website">Website</option>
-                      <option value="Web & App">Web & App</option>
-                      <option value="App">App</option>
-                    </select>
-                  </div>
+
+                  <select name="" id="category">
+                    <option value="" disabled selected>Choose Category</option>
+                    <option value="Website">Website</option>
+                    <option value="Web & App">Web & App</option>
+                    <option value="App">App</option>
+                  </select>
+
+                  <div class="error"></div>
                 </div>
               </div>
               <div class="input-group">
                 <div class="input-group-control">
                   <div>
-                    <label for="github-Link">Github Link</label>
+                    <label for="githubLink">Github Link</label>
                   </div>
-                  <div>
-                    <input
-                      type="text"
-                      name=""
-                      id="github-Link"
-                      placeholder="Enter  Github Link for project"
-                    />
-                  </div>
+
+                  <input
+                    type="text"
+                    name=""
+                    id="githubLink"
+                    placeholder="Enter  Github Link for project"
+                  />
+
+                  <div class="error"></div>
                 </div>
                 <div class="input-group-control">
                   <div>
-                    <label for="hosted-Link">Hosted Link</label>
+                    <label for="hostedLink">Hosted Link</label>
                   </div>
-                  <div>
-                    <input
-                      type="text"
-                      name=""
-                      id="hosted-Link"
-                      placeholder="Enter  hosted Link for project"
-                    />
-                  </div>
+
+                  <input
+                    type="text"
+                    name=""
+                    id="hostedLink"
+                    placeholder="Enter  hosted Link for project"
+                  />
+
+                  <div class="error"></div>
                 </div>
               </div>
               <div class="input-group">
@@ -140,25 +143,28 @@
                   <div>
                     <label for="photo">Featured Image</label>
                   </div>
-                  <div><input type="file" name="" id="photo" /></div>
+                  <input type="file" name="" id="photo" />
+                  <div class="error"></div>
                 </div>
+
                 <div class="input-group-control">
                   <div>
                     <label for="description">Description</label>
                   </div>
-                  <div>
-                    <input
-                      type="text"
-                      name=""
-                      id="description"
-                      placeholder="Description"
-                    />
-                  </div>
+
+                  <input
+                    type="text"
+                    name=""
+                    id="description"
+                    placeholder="Description"
+                  />
+
+                  <div class="error"></div>
                 </div>
               </div>
               <div class="input-group-btns">
                 <div>
-                  <button class="btn">Add</button>
+                  <button class="btn" type="submit">Add</button>
                 </div>
                 <div>
                   <button class="btn-cancer" type="reset">Clear</button>
