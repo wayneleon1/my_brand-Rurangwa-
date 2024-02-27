@@ -583,10 +583,12 @@ textarea:focus {
   font-size: 16px;
   border: none;
   outline: none;
+  display: block;
 }
-.input-group input:focus {
+/* .input-group input:focus {
+  outline: 0;
   border-bottom: 4px solid var(--green);
-}
+} */
 .input-flex {
   display: flex;
   justify-content: space-between;
@@ -833,4 +835,19 @@ nav .toggle_Btn {
   .input-group {
     gap: 15px;
   }
+}
+
+/*  validation css */
+.input-group-item.success input {
+  border: 1px solid var(--green);
+}
+
+.input-group-item.error input {
+  border: 1px solid #ff3860;
+}
+
+.input-group-item .error {
+  color: #ff3860;
+  font-size: 12px;
+  /* height: 13px; */
 }

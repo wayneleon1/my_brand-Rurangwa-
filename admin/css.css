@@ -360,11 +360,6 @@ textarea {
   outline: none;
   background-color: var(--lighterblack);
 }
-.input-group-control input:focus,
-select:focus,
-textarea:focus {
-  outline: 1px solid var(--green);
-}
 .input-group-control input,
 textarea {
   color: var(--white);
@@ -405,4 +400,18 @@ textarea {
     flex-direction: column;
     gap: 20px;
   }
+}
+
+/*  validation css */
+.input-group-control.success input {
+  border: 1px solid var(--green);
+}
+
+.input-group-control.error input {
+  border: 1px solid #ff3860;
+}
+
+.input-group-control .error {
+  color: #ff3860;
+  font-size: 12px;
 }
