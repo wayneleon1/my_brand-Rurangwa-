@@ -11,7 +11,9 @@
       referrerpolicy="no-referrer"
     />
     <link rel="stylesheet" href="css.css" />
+
     <title>Portfolio</title>
+    <script defer src="js/validate_blog-form.js"></script>
   </head>
   <body>
     <!-- Main -->
@@ -78,33 +80,30 @@
               <h3>Create new Blog</h3>
             </div>
 
-            <form action="" class="form-content-container">
+            <form action="/" id="blog-form" class="form-content-container">
               <div class="input-group">
                 <div class="input-group-control">
                   <div>
                     <label for="blogTitle">Blog Title</label>
                   </div>
-                  <div>
-                    <input
-                      type="text"
-                      name=""
-                      id="blogTitle"
-                      placeholder="Enter your blog title"
-                    />
-                  </div>
+                  <input
+                    type="text"
+                    name=""
+                    id="blogTitle"
+                    placeholder="Enter your blog title"
+                  />
+                  <div class="error"></div>
                 </div>
                 <div class="input-group-control">
                   <div><label for="category">Category</label></div>
-                  <div>
-                    <select name="" id="category">
-                      <option value="" disabled selected>
-                        Choose Category
-                      </option>
-                      <option value="Bussiness">Bussiness</option>
-                      <option value="Education">Education</option>
-                      <option value="Coding">Coding</option>
-                    </select>
-                  </div>
+
+                  <select name="" id="category">
+                    <option value="" disabled selected>Choose Category</option>
+                    <option value="Bussiness">Bussiness</option>
+                    <option value="Education">Education</option>
+                    <option value="Coding">Coding</option>
+                  </select>
+                  <div class="error"></div>
                 </div>
               </div>
               <div class="input-group">
@@ -112,14 +111,14 @@
                   <div>
                     <label for="blogContent">Blog Content</label>
                   </div>
-                  <div>
-                    <textarea
-                      name=""
-                      id="blogContent"
-                      cols="30"
-                      rows="5"
-                    ></textarea>
-                  </div>
+
+                  <textarea
+                    name=""
+                    id="blogContent"
+                    cols="30"
+                    rows="5"
+                  ></textarea>
+                  <div class="error"></div>
                 </div>
               </div>
               <div class="input-group">
@@ -127,23 +126,24 @@
                   <div>
                     <label for="photo">Featured Image</label>
                   </div>
-                  <div><input type="file" name="" id="photo" /></div>
+                  <input type="file" name="" id="photo" />
+                  <div class="error"></div>
                 </div>
                 <div class="input-group-control">
                   <div><label for="status">Status</label></div>
-                  <div>
-                    <select name="" id="status">
-                      <option value="" disabled selected>Choose Status</option>
-                      <option value="Published">Published</option>
-                      <option value="Draft">Draft</option>
-                      <option value="Pending">Pending</option>
-                    </select>
-                  </div>
+
+                  <select name="" id="status">
+                    <option value="" disabled selected>Choose Status</option>
+                    <option value="Published">Published</option>
+                    <option value="Draft">Draft</option>
+                    <option value="Pending">Pending</option>
+                  </select>
+                  <div class="error"></div>
                 </div>
               </div>
               <div class="input-group-btns">
                 <div>
-                  <button class="btn">Add</button>
+                  <button class="btn" type="submit">Add</button>
                 </div>
                 <div>
                   <button class="btn-cancer" type="reset">Clear</button>
