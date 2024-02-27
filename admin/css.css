@@ -410,6 +410,13 @@ textarea {
 .input-group-control.error input {
   border: 1px solid #ff3860;
 }
+.input-group-control.success select {
+  border: 1px solid var(--green);
+}
+
+.input-group-control.error select {
+  border: 1px solid #ff3860;
+}
 
 .input-group-control .error {
   color: #ff3860;

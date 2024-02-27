@@ -30,10 +30,10 @@ const setSuccess = (element) => {
 const validateInputs = () => {
   const projectNameValue = projectName.value.trim();
   const categoryValue = category.value.trim();
-  //   const githubLinkValue = githubLink.value.trim();
-  //   const hostedLinkValue = hostedLink.value.trim();
-  //   const photoValue = photo.value.trim();
-  //   const descriptionValue = description.value.trim();
+  const githubLinkValue = githubLink.value.trim();
+  const hostedLinkValue = hostedLink.value.trim();
+  const photoValue = photo.value.trim();
+  const descriptionValue = description.value.trim();
 
   if (projectNameValue === "") {
     setError(projectName, "project Name is required!");
@@ -44,5 +44,26 @@ const validateInputs = () => {
     setError(category, "category  is required!");
   } else {
     setSuccess(category);
+  }
+  if (githubLinkValue === "") {
+    setError(githubLink, "github Link  is required!");
+  } else {
+    setSuccess(githubLink);
+  }
+
+  if (hostedLinkValue === "") {
+    setError(hostedLink, "Hosted Link  is required!");
+  } else {
+    setSuccess(hostedLink);
+  }
+  if (photoValue === "") {
+    setError(photo, "Photo  is required!");
+  } else {
+    setSuccess(hostedLink);
+  }
+  if (descriptionValue === "") {
+    setError(description, "Description  is required!");
+  } else {
+    setSuccess(description);
   }
 };
