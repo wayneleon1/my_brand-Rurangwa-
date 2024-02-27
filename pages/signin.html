@@ -13,10 +13,11 @@
     />
     <link rel="stylesheet" href="/style.css" />
     <title>Portfolio</title>
+    <script defer src="validate.js"></script>
   </head>
   <body>
     <div class="signin-container">
-      <form action="" class="signin-form">
+      <form action="/" id="Login_form" class="signin-form">
         <div class="signin-icon">
           <i class="fa-solid fa-user icon"></i>
         </div>
@@ -31,15 +32,17 @@
           Welcome Back!
         </p>
         <div class="input-group">
-          <div>
-            <input type="email" placeholder="Email" />
+          <div class="input-group-item">
+            <input type="text" id="email" placeholder="Email" />
+            <div class="error"></div>
           </div>
-          <div>
-            <input type="password" placeholder="Password" />
+          <div class="input-group-item">
+            <input type="password" id="password" placeholder="Password" />
+            <div class="error"></div>
           </div>
           <div class="input-flex">
             <div>
-              <a href="/admin//dashboard.html" class="btn">Login</a>
+              <button type="submit" class="btn">Login</button>
             </div>
             <div>
               <a href="#"><p>Forget your password?</p></a>
