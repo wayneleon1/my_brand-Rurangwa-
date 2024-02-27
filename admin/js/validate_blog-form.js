@@ -52,10 +52,10 @@ const validateInputs = () => {
   if (photoValue === "") {
     setError(photo, "Photo  is required!");
   } else {
-    setSuccess(hostedLink);
+    setSuccess(photo);
   }
   if (statusValue === "") {
-    setError(statusValue, "status is required!");
+    setError(statusInput, "status is required!");
   } else {
     setSuccess(statusInput);
   }
