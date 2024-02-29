@@ -32,7 +32,7 @@ const validateInputs = () => {
   const categoryValue = category.value.trim();
   const githubLinkValue = githubLink.value.trim();
   const hostedLinkValue = hostedLink.value.trim();
-  const photoValue = photo.value.trim();
+  // const photoValue = photo.value.trim();
   const descriptionValue = description.value.trim();
 
   if (projectNameValue === "") {
@@ -64,7 +64,7 @@ const validateInputs = () => {
   //   setError(photo, "Photo  is required!");
   //   return false;
   // } else {
-  //   setSuccess(hostedLink);
+  //   setSuccess(photo);
   // }
   if (descriptionValue === "") {
     setError(description, "Description  is required!");
@@ -74,42 +74,6 @@ const validateInputs = () => {
   }
   return true;
 };
-
-// function to show data
-function showData() {
-  let projectList;
-  if (localStorage.getItem("projectList") == null) {
-    projectList = [];
-  } else {
-    projectList = JSON.parse(localStorage.getItem("projectList"));
-  }
-
-  let html;
-  projectList.forEach((element, index) => {
-    html += "<tr >";
-    html += "<td>" + element.projectName + "</td>";
-    html += "<td>" + element.category + "</td>";
-    html += "<td>" + element.photo + "</td>";
-    html += "<td>" + element.githubLink + "</td>";
-    html += "<td>" + element.hostedLink + "</td>";
-    html += "<td>" + element.author + "</td>";
-    html += "<td>" + element.datePublished + "</td>";
-    html += "<td>" + element.author + "</td>";
-    html +=
-      `<td><buttton oncliclk="deleteData(` +
-      index +
-      `)"><i class="fa-regular fa-pen-to-square"></i></button> </td>`;
-    html +=
-      `<td><buttton oncliclk="updateData(` +
-      index +
-      `)"><i class="fa-solid fa-trash"></i></button> </td>`;
-    html += "</tr>";
-    document.querySelector("#crudTable tbody").innerHTML = html;
-  });
-}
-
-// Loads all data
-document.onload = showData();
 
 function addData() {
   if (validateInputs() == true) {
@@ -135,6 +99,7 @@ function addData() {
       photo: photo,
       description: description,
     });
+
     localStorage.setItem("projectList", JSON.stringify(projectList));
     showData();
     document.getElementById("projectName").value = "";

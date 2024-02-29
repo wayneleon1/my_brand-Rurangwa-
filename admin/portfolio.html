@@ -171,6 +171,56 @@
         </div>
       </div>
     </div>
+    <script>
+      // function to show data
+      function showData() {
+        let projectList;
+        if (localStorage.getItem("projectList") == null) {
+          projectList = [];
+        } else {
+          projectList = JSON.parse(localStorage.getItem("projectList"));
+        }
+
+        let html = "";
+        projectList.forEach((element, index) => {
+          html += '<tr class="list">';
+          html += "<td>" + element.projectName + "</td>";
+          html += "<td>" + element.category + "</td>";
+          html +=
+            '<td class="t-image" >  <img src="/images/portfolio/portfolio-3.jpg" alt="Photo" /></td>';
+          html += "<td>" + element.githubLink + "</td>";
+          html += "<td>" + element.hostedLink + "</td>";
+          html += "<td> admin </td>";
+          html += "<td>" + element.datePublished + "</td>";
+
+          html +=
+            `<td><buttton onclick="deleteData(` +
+            index +
+            `)"><i class="fa-solid fa-trash"></i></button> </td>`;
+          html +=
+            `<td><buttton onclick="updateData(` +
+            index +
+            `)"><i class="fa-regular fa-pen-to-square"></i></button> </td>`;
+          html += "</tr>";
+        });
+        document.querySelector("#crudTable tbody").innerHTML = html;
+      }
+      // Loads all data
+      document.onload = showData();
+
+      // function deleteData
+      function deleteData(index) {
+        let projectList;
+        if (localStorage.getItem("projectList") == null) {
+          projectList = [];
+        } else {
+          projectList = JSON.parse(localStorage.getItem("projectList"));
+        }
+        projectList.splice(index, 1);
+        localStorage.setItem("projectList", JSON.stringify(projectList));
+        showData();
+      }
+    </script>
     <script src="script.js"></script>
   </body>
 </html>

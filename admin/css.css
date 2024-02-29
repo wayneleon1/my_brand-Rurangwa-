@@ -266,12 +266,10 @@ a:is(:link, :active, :visited).active {
   border-spacing: 0 0.6em;
 }
 .table-container thead th {
-  text-align: center;
   font-weight: 500;
   font-size: 16px;
 }
 td {
-  text-align: center;
   color: var(--gray);
   font-size: 14px;
   padding: 5px;
