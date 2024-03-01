@@ -83,6 +83,7 @@ function addData() {
       email: email,
       subject: subject,
       message: message,
+      timestamp: new Date().getDate(),
     });
 
     localStorage.setItem("messageList", JSON.stringify(messageList));
