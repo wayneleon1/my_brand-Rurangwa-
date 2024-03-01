@@ -137,77 +137,70 @@
             <h4>Recent Messages</h4>
           </div>
           <div class="table-container">
-            <table>
+            <table id="crudTable">
               <thead>
                 <tr>
                   <th>Names</th>
                   <th>Email</th>
                   <th>Subject</th>
                   <th>Message</th>
-                  <th>Status</th>
                   <th>Date Sent</th>
                   <th colspan="2">Action</th>
                 </tr>
               </thead>
-              <tbody>
-                <tr class="list">
-                  <td>Juliane Petty</td>
-                  <td>julia@gmail.com</td>
-                  <td>Seeking Help</td>
-                  <td>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Illo, nisi?
-                  </td>
-                  <td>Unread</td>
-                  <td>21-02-2024 16:00 PM</td>
-                  <td><i class="fa-solid fa-reply"></i></td>
-                  <td><i class="fa-solid fa-trash"></i></td>
-                </tr>
-                <tr class="list">
-                  <td>Kimmich Peter</td>
-                  <td>julia@gmail.com</td>
-                  <td>Project deal</td>
-                  <td>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Illo, nisi?
-                  </td>
-                  <td>Read</td>
-                  <td>21-02-2024 16:00 PM</td>
-                  <td><i class="fa-solid fa-reply"></i></td>
-                  <td><i class="fa-solid fa-trash"></i></td>
-                </tr>
-                <tr class="list">
-                  <td>Donald Trump</td>
-                  <td>trump@gmail.com</td>
-                  <td>Job Hiring</td>
-                  <td>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Illo, nisi?
-                  </td>
-                  <td>Replied</td>
-                  <td>21-02-2024 16:00 PM</td>
-                  <td><i class="fa-solid fa-reply"></i></td>
-                  <td><i class="fa-solid fa-trash"></i></td>
-                </tr>
-                <tr class="list">
-                  <td>Lionel Chriss</td>
-                  <td>julia@gmail.com</td>
-                  <td>Seeking Help</td>
-                  <td>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Illo, nisi?
-                  </td>
-                  <td>read</td>
-                  <td>21-02-2024 16:00 PM</td>
-                  <td><i class="fa-solid fa-reply"></i></td>
-                  <td><i class="fa-solid fa-trash"></i></td>
-                </tr>
-              </tbody>
+              <tbody></tbody>
             </table>
           </div>
         </div>
       </div>
     </div>
+    <script>
+      // function to show data
+      function showData() {
+        let messageList;
+        if (localStorage.getItem("messageList") == null) {
+          messageList = [];
+        } else {
+          messageList = JSON.parse(localStorage.getItem("messageList"));
+        }
+
+        let html = "";
+        messageList.forEach((element, index) => {
+          html += '<tr class="list">';
+          html += "<td>" + element.names + "</td>";
+          html += "<td>" + element.email + "</td>";
+          html += "<td>" + element.subject + "</td>";
+          html += "<td>" + element.message + "</td>";
+          html += "<td> 21-02-2024 16:00 PM </td>";
+          html +=
+            `<td><buttton onclick="updateData(` +
+            index +
+            `)"><i class="fa-solid fa-reply"></i></button> </td>`;
+          html +=
+            `<td><buttton onclick="deleteData(` +
+            index +
+            `)"><i class="fa-solid fa-trash"></i></button> </td>`;
+
+          html += "</tr>";
+        });
+        document.querySelector("#crudTable tbody").innerHTML = html;
+      }
+      // Loads all data
+      document.onload = showData();
+
+      // function deleteData
+      function deleteData(index) {
+        let messageList;
+        if (localStorage.getItem("messageList") == null) {
+          messageList = [];
+        } else {
+          messageList = JSON.parse(localStorage.getItem("messageList"));
+        }
+        messageList.splice(index, 1);
+        localStorage.setItem("messageList", JSON.stringify(messageList));
+        showData();
+      }
+    </script>
     <script src="script.js"></script>
   </body>
 </html>
