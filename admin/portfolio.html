@@ -12,6 +12,7 @@
     />
     <link rel="stylesheet" href="css.css" />
     <title>Portfolio</title>
+    <script defer src="js/validate_project.js"></script>
   </head>
   <body>
     <!-- Main -->
@@ -90,7 +91,7 @@
             </div>
           </div>
           <div class="table-container">
-            <table>
+            <table id="crudTable">
               <thead>
                 <tr>
                   <th>Project Name</th>
@@ -100,11 +101,10 @@
                   <th>Host Link</th>
                   <th>Author</th>
                   <th>Date Published</th>
-                  <th>Last Update</th>
                   <th colspan="2">Action</th>
                 </tr>
               </thead>
-              <tbody>
+              <!-- <tbody>
                 <tr class="list">
                   <td>Smart Hinga Web</td>
                   <td>Website</td>
@@ -118,7 +118,7 @@
                   <td>http://vercel/project1...</td>
                   <td>admin</td>
                   <td>21-02-2024 16:00 PM</td>
-                  <td>30-02-2024 13:00 PM</td>
+
                   <td><i class="fa-regular fa-pen-to-square"></i></td>
                   <td><i class="fa-solid fa-trash"></i></td>
                 </tr>
@@ -132,7 +132,7 @@
                   <td>http://vercel/project1...</td>
                   <td>admin</td>
                   <td>21-02-2024 16:00 PM</td>
-                  <td>30-02-2024 13:00 PM</td>
+
                   <td><i class="fa-regular fa-pen-to-square"></i></td>
                   <td><i class="fa-solid fa-trash"></i></td>
                 </tr>
@@ -146,7 +146,7 @@
                   <td>http://vercel/project1...</td>
                   <td>admin</td>
                   <td>21-02-2024 16:00 PM</td>
-                  <td>30-02-2024 13:00 PM</td>
+
                   <td><i class="fa-regular fa-pen-to-square"></i></td>
                   <td><i class="fa-solid fa-trash"></i></td>
                 </tr>
@@ -160,16 +160,67 @@
                   <td>http://vercel/project1...</td>
                   <td>admin</td>
                   <td>21-02-2024 16:00 PM</td>
-                  <td>30-02-2024 13:00 PM</td>
+
                   <td><i class="fa-regular fa-pen-to-square"></i></td>
                   <td><i class="fa-solid fa-trash"></i></td>
                 </tr>
-              </tbody>
+              </tbody> -->
+              <tbody></tbody>
             </table>
           </div>
         </div>
       </div>
     </div>
+    <script>
+      // function to show data
+      function showData() {
+        let projectList;
+        if (localStorage.getItem("projectList") == null) {
+          projectList = [];
+        } else {
+          projectList = JSON.parse(localStorage.getItem("projectList"));
+        }
+
+        let html = "";
+        projectList.forEach((element, index) => {
+          html += '<tr class="list">';
+          html += "<td>" + element.projectName + "</td>";
+          html += "<td>" + element.category + "</td>";
+          html +=
+            '<td class="t-image" >  <img src="/images/portfolio/portfolio-3.jpg" alt="Photo" /></td>';
+          html += "<td>" + element.githubLink + "</td>";
+          html += "<td>" + element.hostedLink + "</td>";
+          html += "<td> admin </td>";
+          html += "<td>" + element.datePublished + "</td>";
+
+          html +=
+            `<td><buttton onclick="deleteData(` +
+            index +
+            `)"><i class="fa-solid fa-trash"></i></button> </td>`;
+          html +=
+            `<td><buttton onclick="updateData(` +
+            index +
+            `)"><i class="fa-regular fa-pen-to-square"></i></button> </td>`;
+          html += "</tr>";
+        });
+        document.querySelector("#crudTable tbody").innerHTML = html;
+      }
+      // Loads all data
+      document.onload = showData();
+
+      // function deleteData
+      function deleteData(index) {
+        let projectList;
+        if (localStorage.getItem("projectList") == null) {
+          projectList = [];
+        } else {
+          projectList = JSON.parse(localStorage.getItem("projectList"));
+        }
+        projectList.splice(index, 1);
+        localStorage.setItem("projectList", JSON.stringify(projectList));
+        showData();
+      }
+    </script>
     <script src="script.js"></script>
   </body>
 </html>
