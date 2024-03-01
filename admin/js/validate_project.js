@@ -81,7 +81,7 @@ function addData() {
     const category = document.getElementById("category").value;
     const githubLink = document.getElementById("githubLink").value;
     const hostedLink = document.getElementById("hostedLink").value;
-    const photo = document.getElementById("photo").value;
+    const photo = document.getElementById("photo").files[0].name;
     const description = document.getElementById("description").value;
 
     let projectList;
@@ -98,15 +98,11 @@ function addData() {
       hostedLink: hostedLink,
       photo: photo,
       description: description,
+     
     });
 
     localStorage.setItem("projectList", JSON.stringify(projectList));
-    showData();
-    document.getElementById("projectName").value = "";
-    document.getElementById("category").value = "";
-    document.getElementById("githubLink").value = "";
-    document.getElementById("hostedLink").value = "";
-    document.getElementById("photo").value = "";
-    document.getElementById("description").value = "";
+    document.getElementById("project-form").reset();
+    alert("Data saved successfully!");
   }
 }
