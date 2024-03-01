@@ -527,10 +527,12 @@ textarea {
 .form-input-container textarea {
   resize: none;
 }
-.form-input-container input[type="text"]:focus,
+
+/* .form-input-container input[type="text"]:focus,
 textarea:focus {
   outline: 1px solid var(--green);
-}
+} */
+
 /* footer  */
 #footer {
   width: 100%;
@@ -837,7 +839,7 @@ nav .toggle_Btn {
   }
 }
 
-/*  validation css */
+/*  validation css for login */
 .input-group-item.success input {
   border: 1px solid var(--green);
 }
@@ -850,4 +852,27 @@ nav .toggle_Btn {
   color: #ff3860;
   font-size: 12px;
   /* height: 13px; */
+}
+
+/*  validation css for Message */
+.input-group-element.success input {
+  border: 1px solid var(--green);
+}
+
+.input-group-element.error input {
+  border: 1px solid #ff3860;
+}
+
+.input-group-element .error {
+  color: #ff3860;
+  font-size: 12px;
+  /* height: 13px; */
+}
+
+.input-group-element.success textarea {
+  border: 1px solid var(--green);
+}
+
+.input-group-element.error textarea {
+  border: 1px solid #ff3860;
 }
