@@ -98,11 +98,11 @@ function addData() {
       hostedLink: hostedLink,
       photo: photo,
       description: description,
-     
+      timestamp: new Date().toDateString(),
     });
 
     localStorage.setItem("projectList", JSON.stringify(projectList));
     document.getElementById("project-form").reset();
-    alert("Data saved successfully!");
+    alert("Project saved successfully!");
   }
 }

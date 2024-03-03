@@ -51,12 +51,13 @@ const validateInputs = () => {
   }
   if (passwordValue === "") {
     setError(password, "Password is required!");
+    return false;
   } else if (passwordValue.length < 8) {
     setError(password, "Password must be at 8 characters.");
+    return false;
   } else {
     setSuccess(password);
   }
-
   if (emailValue === "") {
     setError(email, "email is required!");
     return false;
@@ -103,6 +104,7 @@ function addData() {
       email: email,
       // photo: photo,
       role: role,
+      timestamp: new Date().toDateString(),
     });
 
     localStorage.setItem("Users", JSON.stringify(Users));

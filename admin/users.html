@@ -104,7 +104,7 @@
                   <th>Last Name</th>
                   <th>Email</th>
                   <th>Role</th>
-                  <th>Date Joined</th>
+                  <th>Date Created</th>
                   <th colspan="2">Action</th>
                 </tr>
               </thead>
@@ -134,7 +134,7 @@
           html += "<td>" + element.email + "</td>";
           // html += "<td>" + element.password + "</td>";
           html += "<td>" + element.role + "</td>";
-          html += "<td> 21-02-2024 16:00 PM </td>";
+          html += "<td> " + element.timestamp + " </td>";
           html +=
             `<td><buttton onclick="updateData(` +
             index +
