@@ -94,21 +94,20 @@
               </div>
             </div>
           </div>
-          <div class="table-container">
+          <div class="table-container" id="crudTable">
             <table>
               <thead>
                 <tr>
                   <th>Blog Title</th>
                   <th>Category</th>
                   <th>Featured Image</th>
-                  <th>Status</th>
                   <th>Author</th>
                   <th>Date Published</th>
-                  <th>Last Update</th>
                   <th colspan="2">Action</th>
                 </tr>
               </thead>
-              <tbody>
+              <tbody></tbody>
+              <!-- <tbody>
                 <tr class="list">
                   <td>Improve your work performance...</td>
                   <td>Bussiness</td>
@@ -118,10 +117,8 @@
                       alt="Photo"
                     />
                   </td>
-                  <td>published</td>
                   <td>admin</td>
                   <td>21-02-2024 16:00 PM</td>
-                  <td>30-02-2024 13:00 PM</td>
                   <td><i class="fa-regular fa-pen-to-square"></i></td>
                   <td><i class="fa-solid fa-trash"></i></td>
                 </tr>
@@ -131,10 +128,8 @@
                   <td class="t-image">
                     <img src="/images/blogs/image-plane.jpg" alt="Photo" />
                   </td>
-                  <td>pending</td>
                   <td>john Doe</td>
                   <td>21-02-2024 16:00 PM</td>
-                  <td>30-02-2024 13:00 PM</td>
                   <td><i class="fa-regular fa-pen-to-square"></i></td>
                   <td><i class="fa-solid fa-trash"></i></td>
                 </tr>
@@ -144,10 +139,8 @@
                   <td class="t-image">
                     <img src="/images/blogs/image-confetti.jpg" alt="Photo" />
                   </td>
-                  <td>published</td>
                   <td>admin</td>
                   <td>21-02-2024 16:00 PM</td>
-                  <td>30-02-2024 13:00 PM</td>
                   <td><i class="fa-regular fa-pen-to-square"></i></td>
                   <td><i class="fa-solid fa-trash"></i></td>
                 </tr>
@@ -157,19 +150,66 @@
                   <td class="t-image">
                     <img src="/images/blogs/image-restaurant.jpg" alt="Photo" />
                   </td>
-                  <td>published</td>
                   <td>admin</td>
                   <td>21-02-2024 16:00 PM</td>
-                  <td>30-02-2024 13:00 PM</td>
                   <td><i class="fa-regular fa-pen-to-square"></i></td>
                   <td><i class="fa-solid fa-trash"></i></td>
                 </tr>
-              </tbody>
+              </tbody> -->
             </table>
           </div>
         </div>
       </div>
     </div>
+    <script>
+      // function to show data
+      function showData() {
+        let blogList;
+        if (localStorage.getItem("blogList") == null) {
+          blogList = [];
+        } else {
+          blogList = JSON.parse(localStorage.getItem("blogList"));
+        }
+
+        let html = "";
+        blogList.forEach((element, index) => {
+          html += '<tr class="list">';
+          html += "<td>" + element.blogTitle + "</td>";
+          html += "<td>" + element.category + "</td>";
+          html +=
+            '<td class="t-image" >  <img src="/images/portfolio/portfolio-details-1.jpg" alt="Photo" /></td>';
+          html += "<td> admin </td>";
+          html += "<td>" + element.timestamp + "</td>";
+
+          html +=
+            `<td><buttton onclick="deleteData(` +
+            index +
+            `)"><i class="fa-solid fa-trash"></i></button> </td>`;
+          html +=
+            `<td><buttton onclick="updateData(` +
+            index +
+            `)"><i class="fa-regular fa-pen-to-square"></i></button> </td>`;
+          html += "</tr>";
+        });
+        document.querySelector("#crudTable tbody").innerHTML = html;
+      }
+      // Loads all data
+      document.onload = showData();
+
+      // function deleteData
+      function deleteData(index) {
+        let blogList;
+        if (localStorage.getItem("blogList") == null) {
+          blogList = [];
+        } else {
+          blogList = JSON.parse(localStorage.getItem("blogList"));
+        }
+        blogList.splice(index, 1);
+        localStorage.setItem("blogList", JSON.stringify(blogList));
+        alert("Project deleted successfully!");
+        showData();
+      }
+    </script>
     <script src="script.js"></script>
   </body>
 </html>
