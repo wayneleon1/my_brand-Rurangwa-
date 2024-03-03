@@ -12,6 +12,7 @@
     />
     <link rel="stylesheet" href="css.css" />
     <title>Portfolio</title>
+    <script defer src="js/validate_skills_form.js"></script>
   </head>
   <body>
     <!-- Main -->
@@ -56,7 +57,6 @@
               <div><h5>Users</h5></div>
             </div>
           </a>
-
           <a href="/pages/signin.html">
             <div class="tab-item logout-nav">
               <div><img src="images/ic_baseline-logout.svg" alt="" /></div>
@@ -79,87 +79,62 @@
         </div>
         <!-- wrap content -->
         <div class="wrap-content">
-          <div class="pages-title">
-            <h4>Manage Skills</h4>
-          </div>
-          <div class="middle-top">
-            <div>
-              <a href="skills-form.html" class="btn">Add new</a>
+          <div class="row-container">
+            <div class="form-title">
+              <h3>Add new skill</h3>
             </div>
-            <div class="search-container">
-              <div class="search-icon">
-                <i class="fa-solid fa-magnifying-glass"></i>
+
+            <form id="skills_form" class="form-content-container">
+              <div class="input-group">
+                <div class="input-group-control">
+                  <div>
+                    <label for="Language">Language</label>
+                  </div>
+
+                  <input
+                    type="text"
+                    name=""
+                    id="Language"
+                    placeholder="Enter Language"
+                  />
+                  <div class="error"></div>
+                </div>
+                <div class="input-group-control">
+                  <div><label for="type">Type</label></div>
+
+                  <select name="" id="type">
+                    <option value="" disabled selected>
+                      Choose Language Type
+                    </option>
+                    <option value="Front-End">Front-End</option>
+                    <option value="Back-End">Back-End</option>
+                    <option value="Other">Other</option>
+                  </select>
+                  <div class="error"></div>
+                </div>
               </div>
-              <div class="search-input-wrap">
-                <input type="search" placeholder="search..." />
+              <div class="input-group">
+                <div class="input-group-control">
+                  <div>
+                    <label for="photo">Logo / Image</label>
+                  </div>
+                  <input disabled type="file" name="" id="photo" />
+                  <div class="error"></div>
+                </div>
               </div>
-            </div>
-          </div>
-          <div class="table-container">
-            <table id="crudTable">
-              <thead>
-                <tr>
-                  <th>Logo/Image</th>
-                  <th>Language</th>
-                  <th>Type</th>
-                  <th>Date Created</th>
-                  <th colspan="2">Action</th>
-                </tr>
-              </thead>
-              <tbody></tbody>
-            </table>
+              <div class="input-group-btns">
+                <div>
+                  <button class="btn" type="submit">Add</button>
+                </div>
+                <div>
+                  <button class="btn-cancer" type="reset">Clear</button>
+                </div>
+              </div>
+            </form>
           </div>
         </div>
       </div>
     </div>
-    <script>
-      // function to show data
-      function showData() {
-        let Skill_list;
-        if (localStorage.getItem("Skill_list") == null) {
-          Skill_list = [];
-        } else {
-          Skill_list = JSON.parse(localStorage.getItem("Skill_list"));
-        }
-
-        let html = "";
-        Skill_list.forEach((element, index) => {
-          html += '<tr class="list">';
-          html +=
-            '<td class="t-profile" > <img src="/admin/images/avatars/avatar-richard.png" alt="Photo" /></td>';
-          html += "<td>" + element.Language + "</td>";
-          html += "<td>" + element.type + "</td>";
-          html += "<td>" + element.timestamp + "</td>";
-          html +=
-            `<td><buttton onclick="updateData(` +
-            index +
-            `)"><i class="fa-regular fa-pen-to-square"></i></button> </td>`;
-          html +=
-            `<td><buttton onclick="deleteData(` +
-            index +
-            `)"><i class="fa-solid fa-trash"></i></button> </td>`;
-
-          html += "</tr>";
-        });
-        document.querySelector("#crudTable tbody").innerHTML = html;
-      }
-      // Loads all data
-      document.onload = showData();
-
-      // function deleteData
-      function deleteData(index) {
-        let Skill_list;
-        if (localStorage.getItem("Skill_list") == null) {
-          Skill_list = [];
-        } else {
-          Skill_list = JSON.parse(localStorage.getItem("Skill_list"));
-        }
-        Skill_list.splice(index, 1);
-        localStorage.setItem("Skill_list", JSON.stringify(Skill_list));
-        alert("Skill deleted successfully!");
-        showData();
-      }
-    </script>
     <script src="script.js"></script>
   </body>
 </html>
