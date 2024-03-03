@@ -56,6 +56,7 @@
               <div><h5>Users</h5></div>
             </div>
           </a>
+
           <a href="/pages/signin.html">
             <div class="tab-item logout-nav">
               <div><img src="images/ic_baseline-logout.svg" alt="" /></div>
@@ -79,11 +80,11 @@
         <!-- wrap content -->
         <div class="wrap-content">
           <div class="pages-title">
-            <h4>My works</h4>
+            <h4>Manage Skills</h4>
           </div>
           <div class="middle-top">
             <div>
-              <a href="blog-form.html" class="btn">Add new</a>
+              <a href="users-form.html" class="btn">Add new</a>
             </div>
             <div class="search-container">
               <div class="search-icon">
@@ -95,81 +96,72 @@
             </div>
           </div>
           <div class="table-container">
-            <table>
+            <table id="crudTable">
               <thead>
                 <tr>
-                  <th>Blog Title</th>
-                  <th>Category</th>
-                  <th>Featured Image</th>
-                  <th>Status</th>
-                  <th>Author</th>
-                  <th>Date Published</th>
-                  <th>Last Update</th>
+                  <th>Logo</th>
+                  <th>Language</th>
+                  <th>Type</th>
                   <th colspan="2">Action</th>
                 </tr>
               </thead>
-              <tbody>
-                <tr class="list">
-                  <td>Improve your work performance...</td>
-                  <td>Bussiness</td>
-                  <td class="t-image">
-                    <img
-                      src="/images/portfolio/portfolio-details-1.jpg"
-                      alt="Photo"
-                    />
-                  </td>
-                  <td>published</td>
-                  <td>admin</td>
-                  <td>21-02-2024 16:00 PM</td>
-                  <td>30-02-2024 13:00 PM</td>
-                  <td><i class="fa-regular fa-pen-to-square"></i></td>
-                  <td><i class="fa-solid fa-trash"></i></td>
-                </tr>
-                <tr class="list">
-                  <td>Improve your work performance...</td>
-                  <td>Coding</td>
-                  <td class="t-image">
-                    <img src="/images/blogs/image-plane.jpg" alt="Photo" />
-                  </td>
-                  <td>pending</td>
-                  <td>john Doe</td>
-                  <td>21-02-2024 16:00 PM</td>
-                  <td>30-02-2024 13:00 PM</td>
-                  <td><i class="fa-regular fa-pen-to-square"></i></td>
-                  <td><i class="fa-solid fa-trash"></i></td>
-                </tr>
-                <tr class="list">
-                  <td>Improve your work performance...</td>
-                  <td>Skills</td>
-                  <td class="t-image">
-                    <img src="/images/blogs/image-confetti.jpg" alt="Photo" />
-                  </td>
-                  <td>published</td>
-                  <td>admin</td>
-                  <td>21-02-2024 16:00 PM</td>
-                  <td>30-02-2024 13:00 PM</td>
-                  <td><i class="fa-regular fa-pen-to-square"></i></td>
-                  <td><i class="fa-solid fa-trash"></i></td>
-                </tr>
-                <tr class="list">
-                  <td>Improve your work performance...</td>
-                  <td>Education</td>
-                  <td class="t-image">
-                    <img src="/images/blogs/image-restaurant.jpg" alt="Photo" />
-                  </td>
-                  <td>published</td>
-                  <td>admin</td>
-                  <td>21-02-2024 16:00 PM</td>
-                  <td>30-02-2024 13:00 PM</td>
-                  <td><i class="fa-regular fa-pen-to-square"></i></td>
-                  <td><i class="fa-solid fa-trash"></i></td>
-                </tr>
-              </tbody>
+              <tbody></tbody>
             </table>
           </div>
         </div>
       </div>
     </div>
+    <!-- <script>
+      // function to show data
+      function showData() {
+        let Users;
+        if (localStorage.getItem("Users") == null) {
+          Users = [];
+        } else {
+          Users = JSON.parse(localStorage.getItem("Users"));
+        }
+
+        let html = "";
+        Users.forEach((element, index) => {
+          html += '<tr class="list">';
+          html +=
+            '<td class="t-profile" > <img src="/admin/images/avatars/avatar-richard.png" alt="Photo" /></td>';
+          html += "<td>" + element.firstName + "</td>";
+          html += "<td>" + element.lastName + "</td>";
+          html += "<td>" + element.email + "</td>";
+          // html += "<td>" + element.password + "</td>";
+          html += "<td>" + element.role + "</td>";
+          html += "<td> 21-02-2024 16:00 PM </td>";
+          html +=
+            `<td><buttton onclick="updateData(` +
+            index +
+            `)"><i class="fa-regular fa-pen-to-square"></i></button> </td>`;
+          html +=
+            `<td><buttton onclick="deleteData(` +
+            index +
+            `)"><i class="fa-solid fa-trash"></i></button> </td>`;
+
+          html += "</tr>";
+        });
+        document.querySelector("#crudTable tbody").innerHTML = html;
+      }
+      // Loads all data
+      document.onload = showData();
+
+      // function deleteData
+      function deleteData(index) {
+        let Users;
+        if (localStorage.getItem("Users") == null) {
+          Users = [];
+        } else {
+          Users = JSON.parse(localStorage.getItem("Users"));
+        }
+        Users.splice(index, 1);
+        localStorage.setItem("Users", JSON.stringify(Users));
+        alert("User deleted successfully!");
+        showData();
+      }
+    </script> -->
     <script src="script.js"></script>
   </body>
 </html>
