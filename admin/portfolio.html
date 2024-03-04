@@ -112,6 +112,110 @@
               <tbody></tbody>
             </table>
           </div>
+          <!-- Modal -->
+          <!-- Button to open the modal -->
+          <button id="openModalBtn">Open Modal</button>
+
+          <!-- The Modal -->
+          <div id="myModal" class="modal">
+            <!-- Modal content -->
+            <div class="modal-content">
+              <div class="modal-header">
+                <div class="modal-title">
+                  <h2>Edit Project</h2>
+                </div>
+                <div>
+                  <span class="close">&times;</span>
+                </div>
+              </div>
+              <div class="modal-form">
+                <form id="project-form" class="form-content-container">
+                  <div class="input-group">
+                    <div class="input-group-control">
+                      <div>
+                        <label for="projectName">Project Name</label>
+                      </div>
+                      <input
+                        type="text"
+                        name=""
+                        id="projectName"
+                        placeholder="Enter your project name"
+                      />
+                      <div class="error"></div>
+                    </div>
+                    <div class="input-group-control">
+                      <div><label for="category">Category</label></div>
+                      <select name="" id="category">
+                        <option value="" disabled selected>
+                          Choose Category
+                        </option>
+                        <option value="Website">Website</option>
+                        <option value="Web & App">Web & App</option>
+                        <option value="App">App</option>
+                      </select>
+                      <div class="error"></div>
+                    </div>
+                  </div>
+                  <div class="input-group">
+                    <div class="input-group-control">
+                      <div>
+                        <label for="githubLink">Github Link</label>
+                      </div>
+                      <input
+                        type="text"
+                        name=""
+                        id="githubLink"
+                        placeholder="Enter  Github Link for project"
+                      />
+                      <div class="error"></div>
+                    </div>
+                    <div class="input-group-control">
+                      <div>
+                        <label for="hostedLink">Hosted Link</label>
+                      </div>
+                      <input
+                        type="text"
+                        name=""
+                        id="hostedLink"
+                        placeholder="Enter  hosted Link for project"
+                      />
+                      <div class="error"></div>
+                    </div>
+                  </div>
+                  <div class="input-group">
+                    <div class="input-group-control">
+                      <div>
+                        <label for="photo">Featured Image</label>
+                      </div>
+                      <input type="file" name="photo" id="photo" />
+                      <div class="error"></div>
+                    </div>
+                    <div class="input-group-control">
+                      <div>
+                        <label for="description">Description</label>
+                      </div>
+                      <input
+                        type="text"
+                        name=""
+                        id="description"
+                        placeholder="Description"
+                      />
+                      <div class="error"></div>
+                    </div>
+                  </div>
+                  <div class="input-group-btns">
+                    <div>
+                      <button class="btn" type="submit">Add</button>
+                    </div>
+                    <div>
+                      <button class="btn-cancer" type="reset">Clear</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+          <!-- end -->
         </div>
       </div>
     </div>
@@ -167,6 +271,32 @@
         alert("Project deleted successfully!");
         showData();
       }
+      // ----------------------- end -------------
+      // Get the modal
+      var modal = document.getElementById("myModal");
+
+      // Get the button that opens the modal
+      var btn = document.getElementById("openModalBtn");
+
+      // Get the <span> element that closes the modal
+      var span = document.getElementsByClassName("close")[0];
+
+      // When the user clicks the button, open the modal
+      btn.onclick = function () {
+        modal.style.display = "block";
+      };
+
+      // When the user clicks on <span> (x), close the modal
+      span.onclick = function () {
+        modal.style.display = "none";
+      };
+
+      // When the user clicks anywhere outside of the modal, close it
+      window.onclick = function (event) {
+        if (event.target == modal) {
+          modal.style.display = "none";
+        }
+      };
     </script>
     <script src="script.js"></script>
   </body>
