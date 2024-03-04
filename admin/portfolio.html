@@ -12,7 +12,6 @@
     />
     <link rel="stylesheet" href="css.css" />
     <title>Portfolio</title>
-    <script defer src="js/validate_project.js"></script>
   </head>
   <body>
     <!-- Main -->
@@ -112,10 +111,6 @@
               <tbody></tbody>
             </table>
           </div>
-          <!-- Modal -->
-          <!-- Button to open the modal -->
-          <button id="openModalBtn">Open Modal</button>
-
           <!-- The Modal -->
           <div id="myModal" class="modal">
             <!-- Modal content -->
@@ -129,7 +124,7 @@
                 </div>
               </div>
               <div class="modal-form">
-                <form id="project-form" class="form-content-container">
+                <form id="edit-project-form" class="form-content-container">
                   <div class="input-group">
                     <div class="input-group-control">
                       <div>
@@ -205,7 +200,9 @@
                   </div>
                   <div class="input-group-btns">
                     <div>
-                      <button class="btn" type="submit">Add</button>
+                      <button class="btn" type="submit" id="Update">
+                        Update
+                      </button>
                     </div>
                     <div>
                       <button class="btn-cancer" type="reset">Clear</button>
@@ -220,6 +217,8 @@
       </div>
     </div>
     <script>
+      // var validateInputs = require("js/validate_project.js");
+
       // function to show data
       function showData() {
         let projectList;
@@ -248,13 +247,14 @@
             index +
             `)"><i class="fa-solid fa-trash"></i></button> </td>`;
           html +=
-            `<td><buttton onclick="updateData(` +
+            `<td><buttton id="openModalBtn" onclick="updateData(` +
             index +
             `)"><i class="fa-regular fa-pen-to-square"></i></button> </td>`;
           html += "</tr>";
         });
         document.querySelector("#crudTable tbody").innerHTML = html;
       }
+
       // Loads all data
       document.onload = showData();
 
@@ -271,20 +271,52 @@
         alert("Project deleted successfully!");
         showData();
       }
-      // ----------------------- end -------------
-      // Get the modal
-      var modal = document.getElementById("myModal");
-
-      // Get the button that opens the modal
-      var btn = document.getElementById("openModalBtn");
-
-      // Get the <span> element that closes the modal
-      var span = document.getElementsByClassName("close")[0];
-
-      // When the user clicks the button, open the modal
-      btn.onclick = function () {
+      // function update Data
+      function updateData(index) {
+        // When the user clicks the button, open the modal
         modal.style.display = "block";
-      };
+
+        let projectList;
+        if (localStorage.getItem("projectList") == null) {
+          projectList = [];
+        } else {
+          projectList = JSON.parse(localStorage.getItem("projectList"));
+        }
+
+        document.getElementById("projectName").value =
+          projectList[index].projectName;
+        document.getElementById("category").value = projectList[index].category;
+        document.getElementById("githubLink").value =
+          projectList[index].githubLink;
+        document.getElementById("hostedLink").value =
+          projectList[index].hostedLink;
+        document.getElementById("photo").value = projectList[index].photo;
+        document.getElementById("description").value =
+          projectList[index].description;
+
+        document.querySelector("#Update").onclick = () => {
+          projectList[index].projectName =
+            document.getElementById("projectName").value;
+          projectList[index].category =
+            document.getElementById("category").value;
+          projectList[index].githubLink =
+            document.getElementById("githubLink").value;
+          projectList[index].hostedLink =
+            document.getElementById("hostedLink").value;
+          projectList[index].photo = document.getElementById("photo").files[0];
+          projectList[index].description =
+            document.getElementById("description").value;
+
+          localStorage.setItem("projectList", JSON.stringify(projectList));
+          document.getElementById("edit-project-form").reset();
+          alert("Project updated successfully!");
+        };
+      }
+
+      // Show  modal
+      let modal = document.getElementById("myModal");
+      let btn = document.getElementById("openModalBtn");
+      let span = document.getElementsByClassName("close")[0];
 
       // When the user clicks on <span> (x), close the modal
       span.onclick = function () {

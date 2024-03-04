@@ -89,7 +89,6 @@ function addData() {
     reader.readAsDataURL(photo);
     reader.onload = function () {
       const photoData = reader.result;
-
       // Save the Base64 data to local storage
       localStorage.setItem("photo", photoData);
 
@@ -116,3 +115,5 @@ function addData() {
     };
   }
 }
+
+module.exports = validateInputs;
