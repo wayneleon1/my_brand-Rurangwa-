@@ -107,55 +107,6 @@
                 </tr>
               </thead>
               <tbody></tbody>
-              <!-- <tbody>
-                <tr class="list">
-                  <td>Improve your work performance...</td>
-                  <td>Bussiness</td>
-                  <td class="t-image">
-                    <img
-                      src="/images/portfolio/portfolio-details-1.jpg"
-                      alt="Photo"
-                    />
-                  </td>
-                  <td>admin</td>
-                  <td>21-02-2024 16:00 PM</td>
-                  <td><i class="fa-regular fa-pen-to-square"></i></td>
-                  <td><i class="fa-solid fa-trash"></i></td>
-                </tr>
-                <tr class="list">
-                  <td>Improve your work performance...</td>
-                  <td>Coding</td>
-                  <td class="t-image">
-                    <img src="/images/blogs/image-plane.jpg" alt="Photo" />
-                  </td>
-                  <td>john Doe</td>
-                  <td>21-02-2024 16:00 PM</td>
-                  <td><i class="fa-regular fa-pen-to-square"></i></td>
-                  <td><i class="fa-solid fa-trash"></i></td>
-                </tr>
-                <tr class="list">
-                  <td>Improve your work performance...</td>
-                  <td>Skills</td>
-                  <td class="t-image">
-                    <img src="/images/blogs/image-confetti.jpg" alt="Photo" />
-                  </td>
-                  <td>admin</td>
-                  <td>21-02-2024 16:00 PM</td>
-                  <td><i class="fa-regular fa-pen-to-square"></i></td>
-                  <td><i class="fa-solid fa-trash"></i></td>
-                </tr>
-                <tr class="list">
-                  <td>Improve your work performance...</td>
-                  <td>Education</td>
-                  <td class="t-image">
-                    <img src="/images/blogs/image-restaurant.jpg" alt="Photo" />
-                  </td>
-                  <td>admin</td>
-                  <td>21-02-2024 16:00 PM</td>
-                  <td><i class="fa-regular fa-pen-to-square"></i></td>
-                  <td><i class="fa-solid fa-trash"></i></td>
-                </tr>
-              </tbody> -->
             </table>
           </div>
         </div>
@@ -177,7 +128,9 @@
           html += "<td>" + element.blogTitle + "</td>";
           html += "<td>" + element.category + "</td>";
           html +=
-            '<td class="t-image" >  <img src="/images/portfolio/portfolio-details-1.jpg" alt="Photo" /></td>';
+            '<td class="t-image" ><img src=' +
+            element.photo +
+            ' alt="Photo" /></td>';
           html += "<td> admin </td>";
           html += "<td>" + element.timestamp + "</td>";
 

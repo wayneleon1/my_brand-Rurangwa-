@@ -64,26 +64,36 @@ function addData() {
     const blogTitle = document.getElementById("blogTitle").value;
     const category = document.getElementById("category").value;
     const blogContent = document.getElementById("blogContent").value;
-    const photo = document.getElementById("photo").files[0].name;
+    const photo = document.getElementById("photo").files[0];
 
-    let blogList;
-    if (localStorage.getItem("blogList") == null) {
-      blogList = [];
-    } else {
-      blogList = JSON.parse(localStorage.getItem("blogList"));
-    }
+    // / Read the file as a data URL
+    const reader = new FileReader();
+    reader.readAsDataURL(photo);
+    reader.onload = function () {
+      const photoData = reader.result;
 
-    blogList.push({
-      blogTitle: blogTitle,
-      category: category,
-      blogContent: blogContent,
-      photo: photo,
-      timestamp: new Date().toDateString(),
-      comments: [],
-    });
+      // Save the Base64 data to local storage
+      localStorage.setItem("photo", photoData);
 
-    localStorage.setItem("blogList", JSON.stringify(blogList));
-    document.getElementById("blog-form").reset();
-    alert("Blog added successfully!");
+      let blogList;
+      if (localStorage.getItem("blogList") == null) {
+        blogList = [];
+      } else {
+        blogList = JSON.parse(localStorage.getItem("blogList"));
+      }
+
+      blogList.push({
+        blogTitle: blogTitle,
+        category: category,
+        blogContent: blogContent,
+        photo: photoData, // Save the Base64 data here
+        timestamp: new Date().toDateString(),
+        comments: [],
+      });
+
+      localStorage.setItem("blogList", JSON.stringify(blogList));
+      document.getElementById("blog-form").reset();
+      alert("Blog added successfully!");
+    };
   }
 }

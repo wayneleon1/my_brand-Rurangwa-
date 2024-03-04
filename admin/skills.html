@@ -125,8 +125,7 @@
         let html = "";
         Skill_list.forEach((element, index) => {
           html += '<tr class="list">';
-          html +=
-            '<td class="t-profile" > <img src="/admin/images/avatars/avatar-richard.png" alt="Photo" /></td>';
+          html += "<td  > <img src=" + element.photo + ' alt="Photo" /></td>';
           html += "<td>" + element.Language + "</td>";
           html += "<td>" + element.type + "</td>";
           html += "<td>" + element.timestamp + "</td>";

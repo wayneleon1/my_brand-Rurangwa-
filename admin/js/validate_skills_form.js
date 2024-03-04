@@ -42,13 +42,12 @@ const validateInputs = () => {
   } else {
     setSuccess(type);
   }
-
-  // if (photoValue === "") {
-  //   setError(photo, "Photo  is required!");
-  // } else {
-  //   setSuccess(photo);
-  // }
-
+  if (photoValue === "") {
+    setError(photo, "Photo  is required!");
+    return false;
+  } else {
+    setSuccess(photo);
+  }
   return true;
 };
 
@@ -56,24 +55,34 @@ function addData() {
   if (validateInputs() == true) {
     const Language = document.getElementById("Language").value;
     const type = document.getElementById("type").value;
-    // const photo = document.getElementById("photo").value;
+    const photo = document.getElementById("photo").files[0];
 
-    let Skill_list;
-    if (localStorage.getItem("Skill_list") == null) {
-      Skill_list = [];
-    } else {
-      Skill_list = JSON.parse(localStorage.getItem("Skill_list"));
-    }
+    // / Read the file as a data URL
+    const reader = new FileReader();
+    reader.readAsDataURL(photo);
+    reader.onload = function () {
+      const photoData = reader.result;
 
-    Skill_list.push({
-      Language: Language,
-      type: type,
-      // photo: photo,
-      timestamp: new Date().toDateString(),
-    });
+      // Save the Base64 data to local storage
+      localStorage.setItem("photo", photoData);
 
-    localStorage.setItem("Skill_list", JSON.stringify(Skill_list));
-    document.getElementById("skills_form").reset();
-    alert("Skill added successfully!");
+      let Skill_list;
+      if (localStorage.getItem("Skill_list") == null) {
+        Skill_list = [];
+      } else {
+        Skill_list = JSON.parse(localStorage.getItem("Skill_list"));
+      }
+
+      Skill_list.push({
+        Language: Language,
+        type: type,
+        photo: photoData,
+        timestamp: new Date().toDateString(),
+      });
+
+      localStorage.setItem("Skill_list", JSON.stringify(Skill_list));
+      document.getElementById("skills_form").reset();
+      alert("Skill added successfully!");
+    };
   }
 }
