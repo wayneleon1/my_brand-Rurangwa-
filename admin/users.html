@@ -128,7 +128,9 @@
         Users.forEach((element, index) => {
           html += '<tr class="list">';
           html +=
-            '<td class="t-profile" > <img src="/admin/images/avatars/avatar-richard.png" alt="Photo" /></td>';
+            '<td class="t-profile" > <img src=' +
+            element.photo +
+            ' alt="Photo" /></td>';
           html += "<td>" + element.firstName + "</td>";
           html += "<td>" + element.lastName + "</td>";
           html += "<td>" + element.email + "</td>";

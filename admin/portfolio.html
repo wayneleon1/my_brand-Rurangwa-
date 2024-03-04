@@ -102,7 +102,7 @@
                   <th>Project Name</th>
                   <th>Category</th>
                   <th>Photo</th>
-                  <th>Github</th>
+                  <th>Github Link</th>
                   <th>Host Link</th>
                   <th>Author</th>
                   <th>Date Published</th>
@@ -131,7 +131,9 @@
           html += "<td>" + element.projectName + "</td>";
           html += "<td>" + element.category + "</td>";
           html +=
-            '<td class="t-image" >  <img src="/images/portfolio/portfolio-3.jpg" alt="Photo" /></td>';
+            '<td class="t-image" >  <img src=' +
+            element.photo +
+            ' alt="Photo" /></td>';
           html += "<td>" + element.githubLink + "</td>";
           html += "<td>" + element.hostedLink + "</td>";
           html += "<td> admin </td>";
