@@ -109,6 +109,87 @@
               <tbody></tbody>
             </table>
           </div>
+          <!-- The Modal -->
+          <div id="myModal" class="modal">
+            <!-- Modal content -->
+            <div class="modal-content">
+              <div class="modal-header">
+                <div class="modal-title">
+                  <h2>Edit Blog</h2>
+                </div>
+                <div>
+                  <span class="close">&times;</span>
+                </div>
+              </div>
+              <div class="modal-form">
+                <form id="edit-blog-form" class="form-content-container">
+                  <div class="input-group">
+                    <div class="input-group-control">
+                      <div>
+                        <label for="blogTitle">Blog Title</label>
+                      </div>
+                      <input
+                        type="text"
+                        name=""
+                        id="blogTitle"
+                        placeholder="Enter your blog title"
+                      />
+                      <div class="error"></div>
+                    </div>
+                    <div class="input-group-control">
+                      <div><label for="category">Category</label></div>
+
+                      <select id="category">
+                        <option value="" disabled selected>
+                          Choose Category
+                        </option>
+                        <option value="Bussiness">Bussiness</option>
+                        <option value="Education">Education</option>
+                        <option value="Coding">Coding</option>
+                      </select>
+                      <div class="error"></div>
+                    </div>
+                  </div>
+                  <div class="input-group">
+                    <div class="input-group-control">
+                      <div>
+                        <label for="blogContent">Blog Content</label>
+                      </div>
+
+                      <textarea
+                        name=""
+                        id="blogContent"
+                        cols="30"
+                        rows="5"
+                      ></textarea>
+                      <div class="error"></div>
+                    </div>
+                  </div>
+                  <div class="input-group">
+                    <div class="input-group-control">
+                      <div>
+                        <label for="photo">Featured Image</label>
+                      </div>
+                      <input type="file" id="photo" />
+                      <div class="error"></div>
+                    </div>
+                    <div class="input-group-control"></div>
+                  </div>
+                  <div class="input-group-btns">
+                    <div>
+                      <button class="btn" id="Update" type="submit">
+                        Update
+                      </button>
+                    </div>
+                    <div>
+                      <button class="btn-cancer" type="reset">Clear</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+          <!-- end -->
         </div>
       </div>
     </div>
@@ -139,7 +220,7 @@
             index +
             `)"><i class="fa-solid fa-trash"></i></button> </td>`;
           html +=
-            `<td><buttton onclick="updateData(` +
+            `<td><buttton id="openModalBtn" onclick="updateData(` +
             index +
             `)"><i class="fa-regular fa-pen-to-square"></i></button> </td>`;
           html += "</tr>";
@@ -162,6 +243,54 @@
         alert("Project deleted successfully!");
         showData();
       }
+
+      // function update Data
+      function updateData(index) {
+        // When the user clicks the button, open the modal
+        modal.style.display = "block";
+
+        let blogList;
+        if (localStorage.getItem("blogList") == null) {
+          blogList = [];
+        } else {
+          blogList = JSON.parse(localStorage.getItem("blogList"));
+        }
+
+        document.getElementById("blogTitle").value = blogList[index].blogTitle;
+        document.getElementById("category").value = blogList[index].category;
+        document.getElementById("blogContent").value =
+          blogList[index].blogContent;
+        document.getElementById("photo").value = blogList[index].photo;
+
+        document.querySelector("#Update").onclick = () => {
+          blogList[index].blogTitle =
+            document.getElementById("blogTitle").value;
+          blogList[index].category = document.getElementById("category").value;
+          blogList[index].blogContent =
+            document.getElementById("blogContent").value;
+          blogList[index].photo = document.getElementById("photo").files[0];
+
+          localStorage.setItem("blogList", JSON.stringify(blogList));
+          document.getElementById("edit-blog-form").reset();
+          alert("Blog updated successfully!");
+        };
+      }
+      // Show  modal
+      let modal = document.getElementById("myModal");
+      let btn = document.getElementById("openModalBtn");
+      let span = document.getElementsByClassName("close")[0];
+
+      // When the user clicks on <span> (x), close the modal
+      span.onclick = function () {
+        modal.style.display = "none";
+      };
+
+      // When the user clicks anywhere outside of the modal, close it
+      window.onclick = function (event) {
+        if (event.target == modal) {
+          modal.style.display = "none";
+        }
+      };
     </script>
     <script src="script.js"></script>
   </body>

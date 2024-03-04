@@ -115,5 +115,3 @@ function addData() {
     };
   }
 }
-
-module.exports = validateInputs;
