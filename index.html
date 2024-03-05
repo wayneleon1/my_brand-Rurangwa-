@@ -259,7 +259,7 @@
             <h1>MY BLOGS</h1>
           </div>
         </div>
-        <div class="blogs-container">
+        <div class="blogs-container" id="blogs">
           <div class="blog">
             <div class="blog-header">
               <div class="blog-img">
@@ -433,6 +433,7 @@
           html_skill += "</div>";
         });
         document.querySelector("#skills").innerHTML = html_skill;
+
         // Display List of Project
         let projectList;
         if (localStorage.getItem("projectList") == null) {
@@ -444,28 +445,63 @@
         let html_project = "";
         projectList.forEach((element, index) => {
           html_project += `<div class="work">
-            <div class="work-img">
-              <img src="${element.photo}" alt="" />
-            </div>
-            <div class="overlay">
-              <div class="project-info">
-                <p class="project-name">${element.projectName}</p>
-                <p class="project-category">${element.category}</p>
-              </div>
-              <div class="project-link">
-                <div class="github">
-                  <a href="${element.githubLink}"><i class="fa-brands fa-github icon"></i></a>
-                </div>
-                <div class="preview">
-                  <a href="${element.hostedLink}"
-                    target="_blank"><i class="fa-solid fa-arrow-up-right-from-square icon"></i
-                  ></a>
-                </div>
-              </div>
-            </div>
-          </div>`;
+                  <div class="work-img">
+                    <img src="${element.photo}" alt="" />
+                  </div>
+                  <div class="overlay">
+                    <div class="project-info">
+                      <p class="project-name">${element.projectName}</p>
+                      <p class="project-category">${element.category}</p>
+                    </div>
+                    <div class="project-link">
+                      <div class="github">
+                        <a href="${element.githubLink}"><i class="fa-brands fa-github icon"></i></a>
+                      </div>
+                      <div class="preview">
+                        <a href="${element.hostedLink}"
+                          target="_blank"><i class="fa-solid fa-arrow-up-right-from-square icon"></i
+                        ></a>
+                      </div>
+                    </div>
+                  </div>
+                </div>`;
         });
         document.querySelector("#projects").innerHTML = html_project;
+
+        // Display List of Blogs
+        let blogList;
+        if (localStorage.getItem("blogList") == null) {
+          blogList = [];
+        } else {
+          blogList = JSON.parse(localStorage.getItem("blogList"));
+        }
+
+        let html_blog = "";
+        blogList.forEach((element, index) => {
+          html_blog += `<div class="blog">
+                  <div class="blog-header">
+                    <div class="blog-img">
+                      <img src="${element.photo}" alt="" />
+                    </div>
+                    <div class="blog-date">
+                      <p>${element.timestamp.toLocaleDateString("en-US", {
+                        month: "short",
+                        day: "2-digit",
+                        year: "numeric",
+                      })}</p>
+                    </div>
+                  </div>
+                  <div class="blog-footer">
+                    <a href="pages/single-blog.html">
+                      <h3>${element.blogTitle}</h3></a
+                    >
+                    <p>
+                     ${element.blogContent}
+                    </p>
+                  </div>
+                </div>`;
+        });
+        document.querySelector("#blogs").innerHTML = html_blog;
       }
       // Loads all data
       document.onload = showData();
