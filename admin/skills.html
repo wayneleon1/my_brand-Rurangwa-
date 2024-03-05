@@ -109,6 +109,73 @@
               <tbody></tbody>
             </table>
           </div>
+          <!-- The Modal -->
+          <div id="myModal" class="modal">
+            <!-- Modal content -->
+            <div class="modal-content">
+              <div class="modal-header">
+                <div class="modal-title">
+                  <h2>Edit User</h2>
+                </div>
+                <div>
+                  <span class="close">&times;</span>
+                </div>
+              </div>
+              <div class="modal-form">
+                <form id="edit-skills_form" class="form-content-container">
+                  <div class="input-group">
+                    <div class="input-group-control">
+                      <div>
+                        <label for="Language">Language</label>
+                      </div>
+
+                      <input
+                        type="text"
+                        name=""
+                        id="Language"
+                        placeholder="Enter Language"
+                      />
+                      <div class="error"></div>
+                    </div>
+                    <div class="input-group-control">
+                      <div><label for="type">Type</label></div>
+
+                      <select name="" id="type">
+                        <option value="" disabled selected>
+                          Choose Language Type
+                        </option>
+                        <option value="Front-End">Front-End</option>
+                        <option value="Back-End">Back-End</option>
+                        <option value="Other">Other</option>
+                      </select>
+                      <div class="error"></div>
+                    </div>
+                  </div>
+                  <div class="input-group">
+                    <div class="input-group-control">
+                      <div>
+                        <label for="photo">Logo / Image</label>
+                      </div>
+                      <input type="file" id="photo" />
+                      <div class="error"></div>
+                    </div>
+                    <div></div>
+                  </div>
+                  <div class="input-group-btns">
+                    <div>
+                      <button class="btn" id="Update" type="submit">
+                        Update
+                      </button>
+                    </div>
+                    <div>
+                      <button class="btn-cancer" type="reset">Clear</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+          <!-- end -->
         </div>
       </div>
     </div>
@@ -130,7 +197,7 @@
           html += "<td>" + element.type + "</td>";
           html += "<td>" + element.timestamp + "</td>";
           html +=
-            `<td><buttton onclick="updateData(` +
+            `<td><buttton id="openModalBtn" onclick="updateData(` +
             index +
             `)"><i class="fa-regular fa-pen-to-square"></i></button> </td>`;
           html +=
@@ -158,6 +225,49 @@
         alert("Skill deleted successfully!");
         showData();
       }
+      // function update Data
+      function updateData(index) {
+        // When the user clicks the button, open the modal
+        modal.style.display = "block";
+
+        let Skill_list;
+        if (localStorage.getItem("Skill_list") == null) {
+          Skill_list = [];
+        } else {
+          Skill_list = JSON.parse(localStorage.getItem("Skill_list"));
+        }
+
+        document.getElementById("Language").value = Skill_list[index].Language;
+        document.getElementById("type").value = Skill_list[index].type;
+        // document.getElementById("photo").value = Skill_list[index].photo;
+
+        document.querySelector("#Update").onclick = () => {
+          Skill_list[index].Language =
+            document.getElementById("Language").value;
+          Skill_list[index].type = document.getElementById("type").value;
+          // Skill_list[index].photo = document.getElementById("photo").files[0];
+
+          localStorage.setItem("Skill_list", JSON.stringify(Skill_list));
+          document.getElementById("edit-skills_form").reset();
+          alert("Skill updated successfully!");
+        };
+      }
+      // Show  modal
+      let modal = document.getElementById("myModal");
+      let btn = document.getElementById("openModalBtn");
+      let span = document.getElementsByClassName("close")[0];
+
+      // When the user clicks on <span> (x), close the modal
+      span.onclick = function () {
+        modal.style.display = "none";
+      };
+
+      // When the user clicks anywhere outside of the modal, close it
+      window.onclick = function (event) {
+        if (event.target == modal) {
+          modal.style.display = "none";
+        }
+      };
     </script>
     <script src="script.js"></script>
   </body>
