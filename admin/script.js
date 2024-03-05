@@ -13,3 +13,8 @@ const tabContainer = document.querySelector(".tab-container");
 clickedBtn.onclick = function () {
   tabContainer.classList.toggle("open");
 };
+
+const logout = () => {
+  localStorage.removeItem("isLoggedIn");
+  window.location.href = "../pages/signin.html";
+};
