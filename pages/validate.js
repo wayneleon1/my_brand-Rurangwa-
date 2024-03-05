@@ -56,7 +56,6 @@ const userAuthentication = () => {
   if (validateInputs() == true) {
     // Get the stored users from local storage
     let storedUsers = JSON.parse(localStorage.getItem("Users"));
-
     // Check if the entered email exists in stored users
     let user = storedUsers.find(function (u) {
       return u.email === email;
@@ -65,9 +64,8 @@ const userAuthentication = () => {
     // Check if the user exists and the password matches
     if (user && user.password === password) {
       alert("Login successful!");
-      // Set the isLoggedIn item to true
+
       localStorage.setItem("isLoggedIn", true);
-      // Redirect the user to the dashboard page
       window.location.href = "../admin/dashboard.html";
     } else {
       alert("Invalid email or password. Please try again.");

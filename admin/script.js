@@ -1,3 +1,9 @@
+// Check if the user is logged in
+var isLoggedIn = localStorage.getItem("isLoggedIn");
+if (!isLoggedIn) {
+  window.location.href = "../pages/signin.html";
+}
+
 // active Links for Dashboard
 const activePage = window.location.pathname;
 const sideLinks = document
