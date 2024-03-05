@@ -189,12 +189,13 @@
                       <div>
                         <label for="description">Description</label>
                       </div>
-                      <input
-                        type="text"
-                        name=""
-                        id="description"
+                      <textarea
                         placeholder="Description"
-                      />
+                        id="description"
+                        cols="30"
+                        rows="3"
+                        style="resize: none"
+                      ></textarea>
                       <div class="error"></div>
                     </div>
                   </div>
@@ -217,8 +218,6 @@
       </div>
     </div>
     <script>
-      // var validateInputs = require("js/validate_project.js");
-
       // function to show data
       function showData() {
         let projectList;
@@ -288,9 +287,12 @@
         document.getElementById("category").value = projectList[index].category;
         document.getElementById("githubLink").value =
           projectList[index].githubLink;
+
         document.getElementById("hostedLink").value =
           projectList[index].hostedLink;
-        document.getElementById("photo").value = projectList[index].photo;
+
+        // document.getElementById("photo").value = projectList[index].photo;
+
         document.getElementById("description").value =
           projectList[index].description;
 
@@ -303,7 +305,7 @@
             document.getElementById("githubLink").value;
           projectList[index].hostedLink =
             document.getElementById("hostedLink").value;
-          projectList[index].photo = document.getElementById("photo").files[0];
+          // projectList[index].photo = document.getElementById("photo").files[0];
           projectList[index].description =
             document.getElementById("description").value;
 
