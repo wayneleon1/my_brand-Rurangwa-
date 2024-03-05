@@ -260,7 +260,7 @@
         document.getElementById("category").value = blogList[index].category;
         document.getElementById("blogContent").value =
           blogList[index].blogContent;
-        document.getElementById("photo").value = blogList[index].photo;
+        // document.getElementById("photo").value = blogList[index].photo;
 
         document.querySelector("#Update").onclick = () => {
           blogList[index].blogTitle =
@@ -268,7 +268,7 @@
           blogList[index].category = document.getElementById("category").value;
           blogList[index].blogContent =
             document.getElementById("blogContent").value;
-          blogList[index].photo = document.getElementById("photo").files[0];
+          // blogList[index].photo = document.getElementById("photo").files[0];
 
           localStorage.setItem("blogList", JSON.stringify(blogList));
           document.getElementById("edit-blog-form").reset();
