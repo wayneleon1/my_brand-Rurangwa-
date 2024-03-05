@@ -51,12 +51,13 @@ const validateInputs = () => {
   }
   if (passwordValue === "") {
     setError(password, "Password is required!");
+    return false;
   } else if (passwordValue.length < 8) {
     setError(password, "Password must be at 8 characters.");
+    return false;
   } else {
     setSuccess(password);
   }
-
   if (emailValue === "") {
     setError(email, "email is required!");
     return false;
@@ -66,11 +67,11 @@ const validateInputs = () => {
   } else {
     setSuccess(email);
   }
-  // if (photoValue === "") {
-  //   setError(photo, "Photo  is required!");
-  // } else {
-  //   setSuccess(photo);
-  // }
+  if (photoValue === "") {
+    setError(photo, "Photo  is required!");
+  } else {
+    setSuccess(photo);
+  }
   if (roleValue === "") {
     setError(role, "role is required!");
     return false;
@@ -86,27 +87,38 @@ function addData() {
     const lastName = document.getElementById("lastName").value;
     const password = document.getElementById("password").value;
     const email = document.getElementById("email").value;
-    // const photo = document.getElementById("photo").value;
+    const photo = document.getElementById("photo").files[0];
     const role = document.getElementById("role").value;
 
-    let Users;
-    if (localStorage.getItem("Users") == null) {
-      Users = [];
-    } else {
-      Users = JSON.parse(localStorage.getItem("Users"));
-    }
+    // / Read the file as a data URL
+    const reader = new FileReader();
+    reader.readAsDataURL(photo);
+    reader.onload = function () {
+      const photoData = reader.result;
 
-    Users.push({
-      firstName: firstName,
-      lastName: lastName,
-      password: password,
-      email: email,
-      // photo: photo,
-      role: role,
-    });
+      // Save the Base64 data to local storage
+      localStorage.setItem("photo", photoData);
 
-    localStorage.setItem("Users", JSON.stringify(Users));
-    document.getElementById("Register").reset();
-    alert("User registered successfully!");
+      let Users;
+      if (localStorage.getItem("Users") == null) {
+        Users = [];
+      } else {
+        Users = JSON.parse(localStorage.getItem("Users"));
+      }
+
+      Users.push({
+        firstName: firstName,
+        lastName: lastName,
+        password: password,
+        email: email,
+        photo: photoData,
+        role: role,
+        timestamp: new Date().toDateString(),
+      });
+
+      localStorage.setItem("Users", JSON.stringify(Users));
+      document.getElementById("Register").reset();
+      alert("User registered successfully!");
+    };
   }
 }

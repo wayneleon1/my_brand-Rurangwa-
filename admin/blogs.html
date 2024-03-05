@@ -44,6 +44,12 @@
               <div><h5>Blogs</h5></div>
             </div>
           </a>
+          <a href="skills.html">
+            <div class="tab-item">
+              <div><img src="images/card-icons/skills.svg" alt="" /></div>
+              <div><h5>Skills</h5></div>
+            </div>
+          </a>
           <a href="users.html">
             <div class="tab-item">
               <div><img src="images/fa-solid_users.svg" alt="" /></div>
@@ -88,82 +94,204 @@
               </div>
             </div>
           </div>
-          <div class="table-container">
+          <div class="table-container" id="crudTable">
             <table>
               <thead>
                 <tr>
                   <th>Blog Title</th>
                   <th>Category</th>
                   <th>Featured Image</th>
-                  <th>Status</th>
                   <th>Author</th>
                   <th>Date Published</th>
-                  <th>Last Update</th>
                   <th colspan="2">Action</th>
                 </tr>
               </thead>
-              <tbody>
-                <tr class="list">
-                  <td>Improve your work performance...</td>
-                  <td>Bussiness</td>
-                  <td class="t-image">
-                    <img
-                      src="/images/portfolio/portfolio-details-1.jpg"
-                      alt="Photo"
-                    />
-                  </td>
-                  <td>published</td>
-                  <td>admin</td>
-                  <td>21-02-2024 16:00 PM</td>
-                  <td>30-02-2024 13:00 PM</td>
-                  <td><i class="fa-regular fa-pen-to-square"></i></td>
-                  <td><i class="fa-solid fa-trash"></i></td>
-                </tr>
-                <tr class="list">
-                  <td>Improve your work performance...</td>
-                  <td>Coding</td>
-                  <td class="t-image">
-                    <img src="/images/blogs/image-plane.jpg" alt="Photo" />
-                  </td>
-                  <td>pending</td>
-                  <td>john Doe</td>
-                  <td>21-02-2024 16:00 PM</td>
-                  <td>30-02-2024 13:00 PM</td>
-                  <td><i class="fa-regular fa-pen-to-square"></i></td>
-                  <td><i class="fa-solid fa-trash"></i></td>
-                </tr>
-                <tr class="list">
-                  <td>Improve your work performance...</td>
-                  <td>Skills</td>
-                  <td class="t-image">
-                    <img src="/images/blogs/image-confetti.jpg" alt="Photo" />
-                  </td>
-                  <td>published</td>
-                  <td>admin</td>
-                  <td>21-02-2024 16:00 PM</td>
-                  <td>30-02-2024 13:00 PM</td>
-                  <td><i class="fa-regular fa-pen-to-square"></i></td>
-                  <td><i class="fa-solid fa-trash"></i></td>
-                </tr>
-                <tr class="list">
-                  <td>Improve your work performance...</td>
-                  <td>Education</td>
-                  <td class="t-image">
-                    <img src="/images/blogs/image-restaurant.jpg" alt="Photo" />
-                  </td>
-                  <td>published</td>
-                  <td>admin</td>
-                  <td>21-02-2024 16:00 PM</td>
-                  <td>30-02-2024 13:00 PM</td>
-                  <td><i class="fa-regular fa-pen-to-square"></i></td>
-                  <td><i class="fa-solid fa-trash"></i></td>
-                </tr>
-              </tbody>
+              <tbody></tbody>
             </table>
           </div>
+          <!-- The Modal -->
+          <div id="myModal" class="modal">
+            <!-- Modal content -->
+            <div class="modal-content">
+              <div class="modal-header">
+                <div class="modal-title">
+                  <h2>Edit Blog</h2>
+                </div>
+                <div>
+                  <span class="close">&times;</span>
+                </div>
+              </div>
+              <div class="modal-form">
+                <form id="edit-blog-form" class="form-content-container">
+                  <div class="input-group">
+                    <div class="input-group-control">
+                      <div>
+                        <label for="blogTitle">Blog Title</label>
+                      </div>
+                      <input
+                        type="text"
+                        name=""
+                        id="blogTitle"
+                        placeholder="Enter your blog title"
+                      />
+                      <div class="error"></div>
+                    </div>
+                    <div class="input-group-control">
+                      <div><label for="category">Category</label></div>
+
+                      <select id="category">
+                        <option value="" disabled selected>
+                          Choose Category
+                        </option>
+                        <option value="Bussiness">Bussiness</option>
+                        <option value="Education">Education</option>
+                        <option value="Coding">Coding</option>
+                      </select>
+                      <div class="error"></div>
+                    </div>
+                  </div>
+                  <div class="input-group">
+                    <div class="input-group-control">
+                      <div>
+                        <label for="blogContent">Blog Content</label>
+                      </div>
+
+                      <textarea
+                        name=""
+                        id="blogContent"
+                        cols="30"
+                        rows="5"
+                      ></textarea>
+                      <div class="error"></div>
+                    </div>
+                  </div>
+                  <div class="input-group">
+                    <div class="input-group-control">
+                      <div>
+                        <label for="photo">Featured Image</label>
+                      </div>
+                      <input type="file" id="photo" />
+                      <div class="error"></div>
+                    </div>
+                    <div class="input-group-control"></div>
+                  </div>
+                  <div class="input-group-btns">
+                    <div>
+                      <button class="btn" id="Update" type="submit">
+                        Update
+                      </button>
+                    </div>
+                    <div>
+                      <button class="btn-cancer" type="reset">Clear</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+          <!-- end -->
         </div>
       </div>
     </div>
+    <script>
+      // function to show data
+      function showData() {
+        let blogList;
+        if (localStorage.getItem("blogList") == null) {
+          blogList = [];
+        } else {
+          blogList = JSON.parse(localStorage.getItem("blogList"));
+        }
+
+        let html = "";
+        blogList.forEach((element, index) => {
+          html += '<tr class="list">';
+          html += "<td>" + element.blogTitle + "</td>";
+          html += "<td>" + element.category + "</td>";
+          html +=
+            '<td class="t-image" ><img src=' +
+            element.photo +
+            ' alt="Photo" /></td>';
+          html += "<td> admin </td>";
+          html += "<td>" + element.timestamp + "</td>";
+
+          html +=
+            `<td><buttton onclick="deleteData(` +
+            index +
+            `)"><i class="fa-solid fa-trash"></i></button> </td>`;
+          html +=
+            `<td><buttton id="openModalBtn" onclick="updateData(` +
+            index +
+            `)"><i class="fa-regular fa-pen-to-square"></i></button> </td>`;
+          html += "</tr>";
+        });
+        document.querySelector("#crudTable tbody").innerHTML = html;
+      }
+      // Loads all data
+      document.onload = showData();
+
+      // function deleteData
+      function deleteData(index) {
+        let blogList;
+        if (localStorage.getItem("blogList") == null) {
+          blogList = [];
+        } else {
+          blogList = JSON.parse(localStorage.getItem("blogList"));
+        }
+        blogList.splice(index, 1);
+        localStorage.setItem("blogList", JSON.stringify(blogList));
+        alert("Project deleted successfully!");
+        showData();
+      }
+
+      // function update Data
+      function updateData(index) {
+        // When the user clicks the button, open the modal
+        modal.style.display = "block";
+
+        let blogList;
+        if (localStorage.getItem("blogList") == null) {
+          blogList = [];
+        } else {
+          blogList = JSON.parse(localStorage.getItem("blogList"));
+        }
+
+        document.getElementById("blogTitle").value = blogList[index].blogTitle;
+        document.getElementById("category").value = blogList[index].category;
+        document.getElementById("blogContent").value =
+          blogList[index].blogContent;
+        // document.getElementById("photo").value = blogList[index].photo;
+
+        document.querySelector("#Update").onclick = () => {
+          blogList[index].blogTitle =
+            document.getElementById("blogTitle").value;
+          blogList[index].category = document.getElementById("category").value;
+          blogList[index].blogContent =
+            document.getElementById("blogContent").value;
+          // blogList[index].photo = document.getElementById("photo").files[0];
+
+          localStorage.setItem("blogList", JSON.stringify(blogList));
+          document.getElementById("edit-blog-form").reset();
+          alert("Blog updated successfully!");
+        };
+      }
+      // Show  modal
+      let modal = document.getElementById("myModal");
+      let btn = document.getElementById("openModalBtn");
+      let span = document.getElementsByClassName("close")[0];
+
+      // When the user clicks on <span> (x), close the modal
+      span.onclick = function () {
+        modal.style.display = "none";
+      };
+
+      // When the user clicks anywhere outside of the modal, close it
+      window.onclick = function (event) {
+        if (event.target == modal) {
+          modal.style.display = "none";
+        }
+      };
+    </script>
     <script src="script.js"></script>
   </body>
 </html>

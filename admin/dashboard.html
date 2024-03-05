@@ -47,7 +47,12 @@
               <div><h5>Blogs</h5></div>
             </div>
           </a>
-
+          <a href="skills.html">
+            <div class="tab-item">
+              <div><img src="images/card-icons/skills.svg" alt="" /></div>
+              <div><h5>Skills</h5></div>
+            </div>
+          </a>
           <a href="users.html">
             <div class="tab-item">
               <div><img src="images/fa-solid_users.svg" alt="" /></div>
@@ -89,20 +94,20 @@
                   <img src="images/card-icons/fa-solid_users.svg" alt="" />
                 </div>
                 <div class="card-num">
-                  <p style="color: #00d8ff">8</p>
+                  <p style="color: #00d8ff" id="total_users"></p>
                 </div>
               </div>
             </div>
             <div class="card">
               <div class="card-header">
-                <h5>Total works</h5>
+                <h5>Total Projects</h5>
               </div>
               <div class="card-footer">
                 <div class="card-icon-container">
                   <img src="images/card-icons/dashicons_portfolio.svg" alt="" />
                 </div>
                 <div class="card-num">
-                  <p style="color: #e14e1d">6</p>
+                  <p style="color: #e14e1d" id="total_projects"></p>
                 </div>
               </div>
             </div>
@@ -115,7 +120,7 @@
                   <img src="images/card-icons/Vector.svg" alt="" />
                 </div>
                 <div class="card-num">
-                  <p style="color: #f7df1e">12</p>
+                  <p style="color: #f7df1e" id="total_blogs"></p>
                 </div>
               </div>
             </div>
@@ -128,7 +133,7 @@
                   <img src="images/card-icons/envelop.svg" alt="" />
                 </div>
                 <div class="card-num">
-                  <p style="color: #18d26e">5</p>
+                  <p style="color: #18d26e" id="total_msg"></p>
                 </div>
               </div>
             </div>
@@ -171,7 +176,8 @@
           html += "<td>" + element.email + "</td>";
           html += "<td>" + element.subject + "</td>";
           html += "<td>" + element.message + "</td>";
-          html += "<td> 21-02-2024 16:00 PM </td>";
+          html += "<td> " + element.timestamp;
+          +"</td>";
           html +=
             `<td><buttton onclick="updateData(` +
             index +
@@ -184,6 +190,39 @@
           html += "</tr>";
         });
         document.querySelector("#crudTable tbody").innerHTML = html;
+
+        // Display Total Messages
+        let message = messageList.length;
+        document.querySelector("#total_msg").innerHTML = message;
+        // Display Total Users
+        let Users;
+        if (localStorage.getItem("Users") == null) {
+          Users = [];
+        } else {
+          Users = JSON.parse(localStorage.getItem("Users"));
+        }
+        let t_users = Users.length;
+        document.querySelector("#total_users").innerHTML = t_users;
+
+        // Display Total Projects
+        let projectList;
+        if (localStorage.getItem("projectList") == null) {
+          projectList = [];
+        } else {
+          projectList = JSON.parse(localStorage.getItem("projectList"));
+        }
+
+        let t_projects = projectList.length;
+        document.querySelector("#total_projects").innerHTML = t_projects;
+        // Display Total Blogs
+        let blogList;
+        if (localStorage.getItem("blogList") == null) {
+          blogList = [];
+        } else {
+          blogList = JSON.parse(localStorage.getItem("blogList"));
+        }
+        let t_blogs = blogList.length;
+        document.querySelector("#total_blogs").innerHTML = t_blogs;
       }
       // Loads all data
       document.onload = showData();

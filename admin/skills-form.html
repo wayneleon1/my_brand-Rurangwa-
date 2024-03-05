@@ -12,7 +12,7 @@
     />
     <link rel="stylesheet" href="css.css" />
     <title>Portfolio</title>
-    <script defer src="js/validate_userRegister_form.js"></script>
+    <script defer src="js/validate_skills_form.js"></script>
   </head>
   <body>
     <!-- Main -->
@@ -81,85 +81,47 @@
         <div class="wrap-content">
           <div class="row-container">
             <div class="form-title">
-              <h3>Register new user</h3>
+              <h3>Add new skill</h3>
             </div>
 
-            <form id="Register" class="form-content-container">
+            <form id="skills_form" class="form-content-container">
               <div class="input-group">
                 <div class="input-group-control">
                   <div>
-                    <label for="firstName">First Name</label>
+                    <label for="Language">Language</label>
                   </div>
 
                   <input
                     type="text"
                     name=""
-                    id="firstName"
-                    placeholder="Enter First Name"
+                    id="Language"
+                    placeholder="Enter Language"
                   />
                   <div class="error"></div>
                 </div>
                 <div class="input-group-control">
-                  <div>
-                    <label for="lastName">Last Name</label>
-                  </div>
+                  <div><label for="type">Type</label></div>
 
-                  <input
-                    type="text"
-                    name=""
-                    id="lastName"
-                    placeholder="Enter Last Name"
-                  />
-                  <div class="error"></div>
-                </div>
-              </div>
-              <div class="input-group">
-                <div class="input-group-control">
-                  <div>
-                    <label for="password">Password</label>
-                  </div>
-
-                  <input
-                    type="Password"
-                    name=""
-                    id="password"
-                    placeholder="Enter Password"
-                  />
-                  <div class="error"></div>
-                </div>
-                <div class="input-group-control">
-                  <div>
-                    <label for="email">Email</label>
-                  </div>
-
-                  <input
-                    type="text"
-                    name=""
-                    id="email"
-                    placeholder="Enter  Email"
-                  />
-                  <div class="error"></div>
-                </div>
-              </div>
-              <div class="input-group">
-                <div class="input-group-control">
-                  <div>
-                    <label for="photo">Profile Picture</label>
-                  </div>
-                  <input type="file" name="" id="photo" />
-                  <div class="error"></div>
-                </div>
-                <div class="input-group-control">
-                  <div><label for="role">Role</label></div>
-
-                  <select name="" id="role" aria-placeholder="Choose Role">
-                    <option value="" disabled selected>Choose Role</option>
-                    <option value="Editor">Editor</option>
-                    <option value="Admin">Admin</option>
-                    <option value="Subcribor">Subscriber</option>
+                  <select name="" id="type">
+                    <option value="" disabled selected>
+                      Choose Language Type
+                    </option>
+                    <option value="Front-End">Front-End</option>
+                    <option value="Back-End">Back-End</option>
+                    <option value="Other">Other</option>
                   </select>
                   <div class="error"></div>
                 </div>
+              </div>
+              <div class="input-group">
+                <div class="input-group-control">
+                  <div>
+                    <label for="photo">Logo / Image</label>
+                  </div>
+                  <input type="file" id="photo" />
+                  <div class="error"></div>
+                </div>
+                <div></div>
               </div>
               <div class="input-group-btns">
                 <div>

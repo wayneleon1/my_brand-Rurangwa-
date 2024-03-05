@@ -56,6 +56,7 @@
               <div><h5>Users</h5></div>
             </div>
           </a>
+
           <a href="/pages/signin.html">
             <div class="tab-item logout-nav">
               <div><img src="images/ic_baseline-logout.svg" alt="" /></div>
@@ -79,11 +80,11 @@
         <!-- wrap content -->
         <div class="wrap-content">
           <div class="pages-title">
-            <h4>My works</h4>
+            <h4>Manage Skills</h4>
           </div>
           <div class="middle-top">
             <div>
-              <a href="portfolio_form.html" class="btn">Add new</a>
+              <a href="skills-form.html" class="btn">Add new</a>
             </div>
             <div class="search-container">
               <div class="search-icon">
@@ -98,13 +99,10 @@
             <table id="crudTable">
               <thead>
                 <tr>
-                  <th>Project Name</th>
-                  <th>Category</th>
-                  <th>Photo</th>
-                  <th>Github Link</th>
-                  <th>Host Link</th>
-                  <th>Author</th>
-                  <th>Date Published</th>
+                  <th>Logo/Image</th>
+                  <th>Language</th>
+                  <th>Type</th>
+                  <th>Date Created</th>
                   <th colspan="2">Action</th>
                 </tr>
               </thead>
@@ -117,36 +115,38 @@
             <div class="modal-content">
               <div class="modal-header">
                 <div class="modal-title">
-                  <h2>Edit Project</h2>
+                  <h2>Edit User</h2>
                 </div>
                 <div>
                   <span class="close">&times;</span>
                 </div>
               </div>
               <div class="modal-form">
-                <form id="edit-project-form" class="form-content-container">
+                <form id="edit-skills_form" class="form-content-container">
                   <div class="input-group">
                     <div class="input-group-control">
                       <div>
-                        <label for="projectName">Project Name</label>
+                        <label for="Language">Language</label>
                       </div>
+
                       <input
                         type="text"
                         name=""
-                        id="projectName"
-                        placeholder="Enter your project name"
+                        id="Language"
+                        placeholder="Enter Language"
                       />
                       <div class="error"></div>
                     </div>
                     <div class="input-group-control">
-                      <div><label for="category">Category</label></div>
-                      <select name="" id="category">
+                      <div><label for="type">Type</label></div>
+
+                      <select name="" id="type">
                         <option value="" disabled selected>
-                          Choose Category
+                          Choose Language Type
                         </option>
-                        <option value="Website">Website</option>
-                        <option value="Web & App">Web & App</option>
-                        <option value="App">App</option>
+                        <option value="Front-End">Front-End</option>
+                        <option value="Back-End">Back-End</option>
+                        <option value="Other">Other</option>
                       </select>
                       <div class="error"></div>
                     </div>
@@ -154,54 +154,16 @@
                   <div class="input-group">
                     <div class="input-group-control">
                       <div>
-                        <label for="githubLink">Github Link</label>
+                        <label for="photo">Logo / Image</label>
                       </div>
-                      <input
-                        type="text"
-                        name=""
-                        id="githubLink"
-                        placeholder="Enter  Github Link for project"
-                      />
+                      <input type="file" id="photo" />
                       <div class="error"></div>
                     </div>
-                    <div class="input-group-control">
-                      <div>
-                        <label for="hostedLink">Hosted Link</label>
-                      </div>
-                      <input
-                        type="text"
-                        name=""
-                        id="hostedLink"
-                        placeholder="Enter  hosted Link for project"
-                      />
-                      <div class="error"></div>
-                    </div>
-                  </div>
-                  <div class="input-group">
-                    <div class="input-group-control">
-                      <div>
-                        <label for="photo">Featured Image</label>
-                      </div>
-                      <input type="file" name="photo" id="photo" />
-                      <div class="error"></div>
-                    </div>
-                    <div class="input-group-control">
-                      <div>
-                        <label for="description">Description</label>
-                      </div>
-                      <textarea
-                        placeholder="Description"
-                        id="description"
-                        cols="30"
-                        rows="3"
-                        style="resize: none"
-                      ></textarea>
-                      <div class="error"></div>
-                    </div>
+                    <div></div>
                   </div>
                   <div class="input-group-btns">
                     <div>
-                      <button class="btn" type="submit" id="Update">
+                      <button class="btn" id="Update" type="submit">
                         Update
                       </button>
                     </div>
@@ -220,54 +182,47 @@
     <script>
       // function to show data
       function showData() {
-        let projectList;
-        if (localStorage.getItem("projectList") == null) {
-          projectList = [];
+        let Skill_list;
+        if (localStorage.getItem("Skill_list") == null) {
+          Skill_list = [];
         } else {
-          projectList = JSON.parse(localStorage.getItem("projectList"));
+          Skill_list = JSON.parse(localStorage.getItem("Skill_list"));
         }
 
         let html = "";
-        projectList.forEach((element, index) => {
+        Skill_list.forEach((element, index) => {
           html += '<tr class="list">';
-          html += "<td>" + element.projectName + "</td>";
-          html += "<td>" + element.category + "</td>";
-          html +=
-            '<td class="t-image" >  <img src=' +
-            element.photo +
-            ' alt="Photo" /></td>';
-          html += "<td>" + element.githubLink + "</td>";
-          html += "<td>" + element.hostedLink + "</td>";
-          html += "<td> admin </td>";
+          html += "<td  > <img src=" + element.photo + ' alt="Photo" /></td>';
+          html += "<td>" + element.Language + "</td>";
+          html += "<td>" + element.type + "</td>";
           html += "<td>" + element.timestamp + "</td>";
-
-          html +=
-            `<td><buttton onclick="deleteData(` +
-            index +
-            `)"><i class="fa-solid fa-trash"></i></button> </td>`;
           html +=
             `<td><buttton id="openModalBtn" onclick="updateData(` +
             index +
             `)"><i class="fa-regular fa-pen-to-square"></i></button> </td>`;
+          html +=
+            `<td><buttton onclick="deleteData(` +
+            index +
+            `)"><i class="fa-solid fa-trash"></i></button> </td>`;
+
           html += "</tr>";
         });
         document.querySelector("#crudTable tbody").innerHTML = html;
       }
-
       // Loads all data
       document.onload = showData();
 
       // function deleteData
       function deleteData(index) {
-        let projectList;
-        if (localStorage.getItem("projectList") == null) {
-          projectList = [];
+        let Skill_list;
+        if (localStorage.getItem("Skill_list") == null) {
+          Skill_list = [];
         } else {
-          projectList = JSON.parse(localStorage.getItem("projectList"));
+          Skill_list = JSON.parse(localStorage.getItem("Skill_list"));
         }
-        projectList.splice(index, 1);
-        localStorage.setItem("projectList", JSON.stringify(projectList));
-        alert("Project deleted successfully!");
+        Skill_list.splice(index, 1);
+        localStorage.setItem("Skill_list", JSON.stringify(Skill_list));
+        alert("Skill deleted successfully!");
         showData();
       }
       // function update Data
@@ -275,46 +230,28 @@
         // When the user clicks the button, open the modal
         modal.style.display = "block";
 
-        let projectList;
-        if (localStorage.getItem("projectList") == null) {
-          projectList = [];
+        let Skill_list;
+        if (localStorage.getItem("Skill_list") == null) {
+          Skill_list = [];
         } else {
-          projectList = JSON.parse(localStorage.getItem("projectList"));
+          Skill_list = JSON.parse(localStorage.getItem("Skill_list"));
         }
 
-        document.getElementById("projectName").value =
-          projectList[index].projectName;
-        document.getElementById("category").value = projectList[index].category;
-        document.getElementById("githubLink").value =
-          projectList[index].githubLink;
-
-        document.getElementById("hostedLink").value =
-          projectList[index].hostedLink;
-
-        // document.getElementById("photo").value = projectList[index].photo;
-
-        document.getElementById("description").value =
-          projectList[index].description;
+        document.getElementById("Language").value = Skill_list[index].Language;
+        document.getElementById("type").value = Skill_list[index].type;
+        // document.getElementById("photo").value = Skill_list[index].photo;
 
         document.querySelector("#Update").onclick = () => {
-          projectList[index].projectName =
-            document.getElementById("projectName").value;
-          projectList[index].category =
-            document.getElementById("category").value;
-          projectList[index].githubLink =
-            document.getElementById("githubLink").value;
-          projectList[index].hostedLink =
-            document.getElementById("hostedLink").value;
-          // projectList[index].photo = document.getElementById("photo").files[0];
-          projectList[index].description =
-            document.getElementById("description").value;
+          Skill_list[index].Language =
+            document.getElementById("Language").value;
+          Skill_list[index].type = document.getElementById("type").value;
+          // Skill_list[index].photo = document.getElementById("photo").files[0];
 
-          localStorage.setItem("projectList", JSON.stringify(projectList));
-          document.getElementById("edit-project-form").reset();
-          alert("Project updated successfully!");
+          localStorage.setItem("Skill_list", JSON.stringify(Skill_list));
+          document.getElementById("edit-skills_form").reset();
+          alert("Skill updated successfully!");
         };
       }
-
       // Show  modal
       let modal = document.getElementById("myModal");
       let btn = document.getElementById("openModalBtn");

@@ -44,13 +44,19 @@
               <div><h5>Blogs</h5></div>
             </div>
           </a>
-
+          <a href="skills.html">
+            <div class="tab-item">
+              <div><img src="images/card-icons/skills.svg" alt="" /></div>
+              <div><h5>Skills</h5></div>
+            </div>
+          </a>
           <a href="users.html">
             <div class="tab-item">
               <div><img src="images/fa-solid_users.svg" alt="" /></div>
               <div><h5>Users</h5></div>
             </div>
           </a>
+
           <a href="/pages/signin.html">
             <div class="tab-item logout-nav">
               <div><img src="images/ic_baseline-logout.svg" alt="" /></div>
@@ -98,13 +104,106 @@
                   <th>Last Name</th>
                   <th>Email</th>
                   <th>Role</th>
-                  <th>Date Joined</th>
+                  <th>Date Created</th>
                   <th colspan="2">Action</th>
                 </tr>
               </thead>
               <tbody></tbody>
             </table>
           </div>
+          <!-- The Modal -->
+          <div id="myModal" class="modal">
+            <!-- Modal content -->
+            <div class="modal-content">
+              <div class="modal-header">
+                <div class="modal-title">
+                  <h2>Edit User</h2>
+                </div>
+                <div>
+                  <span class="close">&times;</span>
+                </div>
+              </div>
+              <div class="modal-form">
+                <form id="edit-Register" class="form-content-container">
+                  <div class="input-group">
+                    <div class="input-group-control">
+                      <div>
+                        <label for="firstName">First Name</label>
+                      </div>
+
+                      <input
+                        type="text"
+                        name=""
+                        id="firstName"
+                        placeholder="Enter First Name"
+                      />
+                      <div class="error"></div>
+                    </div>
+                    <div class="input-group-control">
+                      <div>
+                        <label for="lastName">Last Name</label>
+                      </div>
+
+                      <input
+                        type="text"
+                        name=""
+                        id="lastName"
+                        placeholder="Enter Last Name"
+                      />
+                      <div class="error"></div>
+                    </div>
+                  </div>
+                  <div class="input-group">
+                    <div class="input-group-control">
+                      <div>
+                        <label for="email">Email</label>
+                      </div>
+
+                      <input
+                        type="text"
+                        name=""
+                        id="email"
+                        placeholder="Enter  Email"
+                      />
+                      <div class="error"></div>
+                    </div>
+                    <div class="input-group-control">
+                      <div><label for="role">Role</label></div>
+
+                      <select name="" id="role" aria-placeholder="Choose Role">
+                        <option value="" disabled selected>Choose Role</option>
+                        <option value="Editor">Editor</option>
+                        <option value="Admin">Admin</option>
+                        <option value="Subcribor">Subscriber</option>
+                      </select>
+                      <div class="error"></div>
+                    </div>
+                  </div>
+                  <div class="input-group">
+                    <div class="input-group-control">
+                      <div>
+                        <label for="photo">Profile Picture</label>
+                      </div>
+                      <input type="file" name="" id="photo" />
+                      <div class="error"></div>
+                    </div>
+                    <div></div>
+                  </div>
+                  <div class="input-group-btns">
+                    <div>
+                      <button class="btn" id="Update" type="submit">
+                        Update
+                      </button>
+                    </div>
+                    <div>
+                      <button class="btn-cancer" type="reset">Clear</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+          <!-- end -->
         </div>
       </div>
     </div>
@@ -122,15 +221,17 @@
         Users.forEach((element, index) => {
           html += '<tr class="list">';
           html +=
-            '<td class="t-profile" > <img src="/admin/images/avatars/avatar-richard.png" alt="Photo" /></td>';
+            '<td class="t-profile" > <img src=' +
+            element.photo +
+            ' alt="Photo" /></td>';
           html += "<td>" + element.firstName + "</td>";
           html += "<td>" + element.lastName + "</td>";
           html += "<td>" + element.email + "</td>";
           // html += "<td>" + element.password + "</td>";
           html += "<td>" + element.role + "</td>";
-          html += "<td> 21-02-2024 16:00 PM </td>";
+          html += "<td> " + element.timestamp + " </td>";
           html +=
-            `<td><buttton onclick="updateData(` +
+            `<td><buttton id="openModalBtn" onclick="updateData(` +
             index +
             `)"><i class="fa-regular fa-pen-to-square"></i></button> </td>`;
           html +=
@@ -158,6 +259,52 @@
         alert("User deleted successfully!");
         showData();
       }
+      // function update Data
+      function updateData(index) {
+        // When the user clicks the button, open the modal
+        modal.style.display = "block";
+
+        let Users;
+        if (localStorage.getItem("Users") == null) {
+          Users = [];
+        } else {
+          Users = JSON.parse(localStorage.getItem("Users"));
+        }
+
+        document.getElementById("firstName").value = Users[index].firstName;
+        document.getElementById("lastName").value = Users[index].lastName;
+        document.getElementById("email").value = Users[index].email;
+        document.getElementById("role").value = Users[index].role;
+        // document.getElementById("photo").value = Users[index].photo;
+
+        document.querySelector("#Update").onclick = () => {
+          Users[index].firstName = document.getElementById("firstName").value;
+          Users[index].lastName = document.getElementById("lastName").value;
+          Users[index].email = document.getElementById("email").value;
+          Users[index].role = document.getElementById("role").value;
+          // Users[index].photo = document.getElementById("photo").files[0];
+
+          localStorage.setItem("Users", JSON.stringify(Users));
+          document.getElementById("edit-Register").reset();
+          alert("User updated successfully!");
+        };
+      }
+      // Show  modal
+      let modal = document.getElementById("myModal");
+      let btn = document.getElementById("openModalBtn");
+      let span = document.getElementsByClassName("close")[0];
+
+      // When the user clicks on <span> (x), close the modal
+      span.onclick = function () {
+        modal.style.display = "none";
+      };
+
+      // When the user clicks anywhere outside of the modal, close it
+      window.onclick = function (event) {
+        if (event.target == modal) {
+          modal.style.display = "none";
+        }
+      };
     </script>
     <script src="script.js"></script>
   </body>

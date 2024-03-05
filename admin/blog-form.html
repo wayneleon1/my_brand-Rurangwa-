@@ -46,7 +46,12 @@
               <div><h5>Blogs</h5></div>
             </div>
           </a>
-
+          <a href="skills.html">
+            <div class="tab-item">
+              <div><img src="images/card-icons/skills.svg" alt="" /></div>
+              <div><h5>Skills</h5></div>
+            </div>
+          </a>
           <a href="users.html">
             <div class="tab-item">
               <div><img src="images/fa-solid_users.svg" alt="" /></div>
@@ -80,7 +85,7 @@
               <h3>Create new Blog</h3>
             </div>
 
-            <form action="/" id="blog-form" class="form-content-container">
+            <form id="blog-form" class="form-content-container">
               <div class="input-group">
                 <div class="input-group-control">
                   <div>
@@ -97,7 +102,7 @@
                 <div class="input-group-control">
                   <div><label for="category">Category</label></div>
 
-                  <select name="" id="category">
+                  <select id="category">
                     <option value="" disabled selected>Choose Category</option>
                     <option value="Bussiness">Bussiness</option>
                     <option value="Education">Education</option>
@@ -126,20 +131,10 @@
                   <div>
                     <label for="photo">Featured Image</label>
                   </div>
-                  <input type="file" name="" id="photo" />
+                  <input type="file" id="photo" />
                   <div class="error"></div>
                 </div>
-                <div class="input-group-control">
-                  <div><label for="status">Status</label></div>
-
-                  <select name="" id="status">
-                    <option value="" disabled selected>Choose Status</option>
-                    <option value="Published">Published</option>
-                    <option value="Draft">Draft</option>
-                    <option value="Pending">Pending</option>
-                  </select>
-                  <div class="error"></div>
-                </div>
+                <div class="input-group-control"></div>
               </div>
               <div class="input-group-btns">
                 <div>
