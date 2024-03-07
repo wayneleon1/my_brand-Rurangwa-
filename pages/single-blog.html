@@ -55,7 +55,7 @@
       <section class="single-blog-wrap">
         <div class="single-blog-titles">
           <div>
-            <h2>Improve your work performance</h2>
+            <h2 id="blogTitle"></h2>
           </div>
           <div class="single-blog-titles-icon">
             <div>
@@ -64,43 +64,20 @@
             </div>
             <div>
               <i class="fa-regular fa-calendar-days"></i>
-              <p>June 9, 2022 </p>
+              <p id="publishedDate"></p>
             </div>
             <div>
               <i class="fa-solid fa-tag"></i>
-              <p>Businesss</p>
+              <p id="blogCategory"></p>
             </div>
           </div>
           <div class="line"></div>
         </div>
         <div class="blog-img">
-          <img src="/images/blogs/Rectangle 19.png" alt="Blog" />
+          <img src="" id="featuredImage" alt="Blog" />
         </div>
         <div class="blog-description">
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum.
-          </p>
-          <p>
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-            nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum.
-          </p>
-          <h4>Lorem ipsum dolor sit amet</h4>
-          <p>
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-            nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum.
-          </p>
+          <p id="blogContent"></p>
         </div>
         <div class="line-through"></div>
         <div class="comments-wrap">
@@ -165,5 +142,28 @@
       <p>© Copyright. All Rights Reserved</p>
     </footer>
     <script src="/script.js"></script>
+    <script>
+      // Parse the URL to extract the index parameter
+      const urlParams = new URLSearchParams(window.location.search);
+      const index = parseInt(urlParams.get("index")); // Parse index as integer
+
+      // Retrieve the blog post from localStorage based on the index
+      const blogPost = JSON.parse(localStorage.getItem("blogList"))[index];
+
+      // Now you have access to the blog post object, you can use its properties
+      let blogTitle = blogPost.blogTitle;
+      let blogCategory = blogPost.category;
+      let blogContent = blogPost.blogContent;
+      let featuredImage = blogPost.photo;
+      let publishedDate = blogPost.timestamp;
+
+      document.querySelector("#blogTitle").innerHTML = blogTitle;
+      document.querySelector("#publishedDate").innerHTML = publishedDate;
+      document.querySelector("#blogCategory").innerHTML = blogCategory;
+      document.querySelector("#blogContent").innerHTML = blogContent;
+      document
+        .querySelector("#featuredImage")
+        .setAttribute("src", featuredImage);
+    </script>
   </body>
 </html>
