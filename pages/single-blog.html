@@ -159,7 +159,8 @@
       let featuredImage = blogPost.photo;
       let publishedDate = blogPost.timestamp;
       let comments = blogPost.comments.length;
-      let totalComments = comments > 0 ? comments : "No comments added yet!";
+      let totalComments =
+        comments > 0 ? comments + " Comments" : "No comments added yet!";
 
       document.querySelector("#blogTitle").innerHTML = blogTitle;
       document.querySelector("#publishedDate").innerHTML = publishedDate;

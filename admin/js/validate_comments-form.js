@@ -5,7 +5,7 @@ const contentMsg = document.getElementById("contentMsg");
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
-  validateInputs();
+  addComment();
 });
 
 const setError = (element, message) => {
@@ -55,42 +55,32 @@ const validateInputs = () => {
   }
   return true;
 };
-// Function add data
-// function addData() {
-//   if (validateInputs() == true) {
-//     const blogTitle = document.getElementById("blogTitle").value;
-//     const category = document.getElementById("category").value;
-//     const blogContent = document.getElementById("blogContent").value;
-//     const photo = document.getElementById("photo").files[0];
+// Function add Comment
+function addComment() {
+  if (validateInputs() == true) {
+    const names = document.getElementById("names").value;
+    const email = document.getElementById("email").value;
+    const contentMsg = document.getElementById("contentMsg").value;
 
-//     // / Read the file as a data URL
-//     const reader = new FileReader();
-//     reader.readAsDataURL(photo);
-//     reader.onload = function () {
-//       const photoData = reader.result;
+    // Parse the URL to extract the index parameter
+    const urlParams = new URLSearchParams(window.location.search);
+    const index = parseInt(urlParams.get("index")); // Parse index as integer
 
-//       // Save the Base64 data to local storage
-//       localStorage.setItem("photo", photoData);
+    let blogList;
+    if (localStorage.getItem("blogList") == null) {
+      blogList = [];
+    } else {
+      blogList = JSON.parse(localStorage.getItem("blogList"));
+    }
+    blogList[index].comments.push({
+      names: names,
+      email: email,
+      contentMsg: contentMsg,
+      timestamp: new Date().toDateString(),
+    });
 
-//       let blogList;
-//       if (localStorage.getItem("blogList") == null) {
-//         blogList = [];
-//       } else {
-//         blogList = JSON.parse(localStorage.getItem("blogList"));
-//       }
-
-//       blogList.push({
-//         blogTitle: blogTitle,
-//         category: category,
-//         blogContent: blogContent,
-//         photo: photoData, // Save the Base64 data here
-//         timestamp: new Date().toDateString(),
-//         comments: [],
-//       });
-
-//       localStorage.setItem("blogList", JSON.stringify(blogList));
-//       document.getElementById("blog-form").reset();
-//       alert("Blog added successfully!");
-//     };
-//   }
-// }
+    localStorage.setItem("blogList", JSON.stringify(blogList));
+    document.getElementById("comment-form").reset();
+    alert("Comment added successfully!");
+  }
+}
