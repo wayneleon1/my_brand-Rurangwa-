@@ -84,34 +84,7 @@
         <div class="comments-wrap">
           <div class="comments">
             <h5 id="totalComments"></h5>
-            <!-- <div class="posted-comments">
-              <div class="comment-item">
-                <div class="comment-user-profile">
-                  <img src="/images/icons/Profile.png" alt="user-profile" />
-                </div>
-                <div class="comment-content">
-                  <h5>Mikasa John – June 9, 2022</h5>
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                    do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua.
-                  </p>
-                </div>
-              </div>
-              <div class="comment-item">
-                <div class="comment-user-profile">
-                  <img src="/images/icons/Profile.png" alt="user-profile" />
-                </div>
-                <div class="comment-content">
-                  <h5>Mikasa John – June 9, 2022</h5>
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                    do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua.
-                  </p>
-                </div>
-              </div>
-            </div> -->
+            <div class="posted-comments" id="posted-comments"></div>
           </div>
           <div class="comment-form">
             <h4>Leave a Comment</h4>
@@ -150,7 +123,6 @@
       // Parse the URL to extract the index parameter
       const urlParams = new URLSearchParams(window.location.search);
       const index = parseInt(urlParams.get("index")); // Parse index as integer
-
       const blogPost = JSON.parse(localStorage.getItem("blogList"))[index];
 
       let blogTitle = blogPost.blogTitle;
@@ -170,6 +142,30 @@
         .querySelector("#featuredImage")
         .setAttribute("src", featuredImage);
       document.querySelector("#totalComments").innerHTML = totalComments;
+
+      // Dispaly added comments
+      function showComments() {
+        let Comments = blogPost.comments;
+        if (Comments == null) {
+          Comments = [];
+        }
+        let html_Comment = "";
+        Comments.forEach((element, index) => {
+          html_Comment += ` <div class="comment-item">
+                <div class="comment-user-profile">
+                  <img src="/images/icons/Profile.png" alt="user-profile" />
+                </div>
+                <div class="comment-content">
+                  <h5>${element.names} – ${element.timestamp}</h5>
+                  <p>
+                    ${element.contentMsg}
+                  </p>
+                </div>
+              </div>`;
+        });
+        document.querySelector("#posted-comments").innerHTML = html_Comment;
+      }
+      document.onload = showComments();
     </script>
   </body>
 </html>
