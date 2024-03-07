@@ -310,7 +310,8 @@ td i.fa-trash {
   color: #f24e1e;
 }
 td i.fa-comments {
-  color: royalblue;
+  color: grey;
+  margin-left: 5px;
 }
 /* Global Form*/
 .form-title {
