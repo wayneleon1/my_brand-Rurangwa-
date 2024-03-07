@@ -13,6 +13,7 @@
     />
     <link rel="stylesheet" href="/style.css" />
     <title>Portfolio</title>
+    <script defer src="/admin/js/validate_comments-form.js"></script>
   </head>
   <body>
     <header>
@@ -114,25 +115,28 @@
           </div>
           <div class="comment-form">
             <h4>Leave a Comment</h4>
-            <p>
-              Your email address will not be published. Required fields are
-              marked *
-            </p>
-            <form action="" class="form-input-container">
-              <div>
+            <p>Your email address will not be published.</p>
+            <form class="form-input-container" id="comment-form">
+              <div class="first-child">
+                <div class="input-group-element">
+                  <input type="text" placeholder="Your Name" id="names" />
+                  <div class="error"></div>
+                </div>
+                <div class="input-group-element">
+                  <input type="text" placeholder="Your Email" id="email" />
+                  <div class="error"></div>
+                </div>
+              </div>
+              <div class="input-group-element">
                 <textarea
-                  name="message"
-                  id=""
+                  id="contentMsg"
                   cols="30"
                   rows="5"
-                  placeholder="Comment"
+                  placeholder="Comment..."
                 ></textarea>
+                <div class="error"></div>
               </div>
-              <div class="first-child">
-                <div><input type="text" placeholder="Your Name" /></div>
-                <div><input type="text" placeholder="Your Email" /></div>
-              </div>
-              <div><button class="btn">Submit</button></div>
+              <div><button class="btn" type="submit">Submit</button></div>
             </form>
           </div>
         </div>

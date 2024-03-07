@@ -99,6 +99,7 @@
                   <th>Blog Title</th>
                   <th>Category</th>
                   <th>Featured Image</th>
+                  <th>Comments</th>
                   <th>Author</th>
                   <th>Date Published</th>
                   <th colspan="2">Action</th>
@@ -210,6 +211,10 @@
             '<td class="t-image" ><img src=' +
             element.photo +
             ' alt="Photo" /></td>';
+          html +=
+            "<td>" +
+            element.comments.length +
+            '<i class="fa-solid fa-comments"></i></td>';
           html += "<td> admin </td>";
           html += "<td>" + element.timestamp + "</td>";
 
