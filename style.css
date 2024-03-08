@@ -544,7 +544,7 @@ textarea:focus {
 /* sign in page */
 .signin-container {
   width: 100%;
-  height: 90vh;
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -552,9 +552,10 @@ textarea:focus {
 }
 .signin-form {
   background-color: #000000e6;
-  width: 500px;
+  width: 40%;
   padding: 40px 30px;
   position: relative;
+  margin: 5% auto;
 }
 .signin-icon {
   top: -32px;
@@ -832,11 +833,16 @@ nav .toggle_Btn {
     padding: 20px;
   }
   .signin-form {
-    padding: 20px;
+    margin: 10% auto;
+    padding: 15px;
+    width: 95%;
   }
   .input-group {
     gap: 15px;
   }
+  /* .input-flex {
+    flex-direction: column;
+  } */
 }
 
 /*  validation css for login */

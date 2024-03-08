@@ -29,9 +29,17 @@
             margin: 20px;
           "
         >
-          Welcome Back!
+          Create account !
         </p>
         <div class="input-group">
+          <div class="input-group-item">
+            <input type="text" id="firstName" placeholder="First Name" />
+            <div class="error"></div>
+          </div>
+          <div class="input-group-item">
+            <input type="text" id="lastName" placeholder="Last Name" />
+            <div class="error"></div>
+          </div>
           <div class="input-group-item">
             <input type="text" id="email" placeholder="Email" />
             <div class="error"></div>
@@ -40,12 +48,24 @@
             <input type="password" id="password" placeholder="Password" />
             <div class="error"></div>
           </div>
+          <div class="input-group-item">
+            <input
+              type="password"
+              id="confrim_password"
+              placeholder="Confirm Password"
+            />
+            <div class="error"></div>
+          </div>
+          <div class="input-group-item">
+            <input type="file" name="" id="photo" />
+            <div class="error"></div>
+          </div>
           <div class="input-flex">
             <div>
-              <button type="submit" class="btn">Login</button>
+              <button type="submit" class="btn">Register</button>
             </div>
             <div>
-              <a href="signup.html"><p>I don't have any accont?</p></a>
+              <a href="signin.html"><p>I arleady have accont!</p></a>
             </div>
           </div>
         </div>
