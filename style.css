@@ -528,11 +528,6 @@ textarea {
   resize: none;
 }
 
-/* .form-input-container input[type="text"]:focus,
-textarea:focus {
-  outline: 1px solid var(--green);
-} */
-
 /* footer  */
 #footer {
   width: 100%;
@@ -588,10 +583,6 @@ textarea:focus {
   outline: none;
   display: block;
 }
-/* .input-group input:focus {
-  outline: 0;
-  border-bottom: 4px solid var(--green);
-} */
 .input-flex {
   display: flex;
   justify-content: space-between;
