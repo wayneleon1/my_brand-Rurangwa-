@@ -68,7 +68,7 @@
         <div class="topBar">
           <div>
             <h5>Welcome Back Leon !</h5>
-            <p>20 February, 2024</p>
+            <p id="currentDate"></p>
           </div>
           <div class="profile-img">
             <img src="images/avatar-shanai.png" alt="Profile" />
@@ -99,6 +99,7 @@
                   <th>Blog Title</th>
                   <th>Category</th>
                   <th>Featured Image</th>
+                  <th>Comments</th>
                   <th>Author</th>
                   <th>Date Published</th>
                   <th colspan="2">Action</th>
@@ -210,6 +211,10 @@
             '<td class="t-image" ><img src=' +
             element.photo +
             ' alt="Photo" /></td>';
+          html +=
+            "<td>" +
+            element.comments.length +
+            '<i class="fa-solid fa-comments"></i></td>';
           html += "<td> admin </td>";
           html += "<td>" + element.timestamp + "</td>";
 

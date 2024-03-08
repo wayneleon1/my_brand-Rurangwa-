@@ -309,6 +309,10 @@ td i.fa-pen-to-square {
 td i.fa-trash {
   color: #f24e1e;
 }
+td i.fa-comments {
+  color: grey;
+  margin-left: 5px;
+}
 /* Global Form*/
 .form-title {
   display: flex;

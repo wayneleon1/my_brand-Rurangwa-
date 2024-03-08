@@ -259,65 +259,7 @@
             <h1>MY BLOGS</h1>
           </div>
         </div>
-        <div class="blogs-container" id="blogs">
-          <div class="blog">
-            <div class="blog-header">
-              <div class="blog-img">
-                <img src="images/blogs/image-plane.jpg" alt="" />
-              </div>
-              <div class="blog-date">
-                <p>June 9, 2024</p>
-              </div>
-            </div>
-            <div class="blog-footer">
-              <a href="pages/single-blog.html">
-                <h3>Improve your work performance</h3></a
-              >
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore...
-              </p>
-            </div>
-          </div>
-          <div class="blog">
-            <div class="blog-header">
-              <div class="blog-img">
-                <img src="images/blogs/image-restaurant.jpg" alt="" />
-              </div>
-              <div class="blog-date">
-                <p>June 9, 2024</p>
-              </div>
-            </div>
-            <div class="blog-footer">
-              <a href="pages/single-blog.html">
-                <h3>What Is the Metaverse, Exactly?</h3>
-              </a>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore...
-              </p>
-            </div>
-          </div>
-          <div class="blog">
-            <div class="blog-header">
-              <div class="blog-img">
-                <img src="images/blogs/image-confetti.jpg" alt="" />
-              </div>
-              <div class="blog-date">
-                <p>June 9, 2024</p>
-              </div>
-            </div>
-            <div class="blog-footer">
-              <a href="pages/single-blog.html">
-                <h3>How to work from home</h3>
-              </a>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore...
-              </p>
-            </div>
-          </div>
-        </div>
+        <div class="blogs-container" id="blogs"></div>
         <div class="btn-center">
           <button class="btn">View all</button>
         </div>
@@ -484,15 +426,11 @@
                       <img src="${element.photo}" alt="" />
                     </div>
                     <div class="blog-date">
-                      <p>${element.timestamp.toLocaleDateString("en-US", {
-                        month: "short",
-                        day: "2-digit",
-                        year: "numeric",
-                      })}</p>
+                      <p>${element.timestamp}</p>
                     </div>
                   </div>
                   <div class="blog-footer">
-                    <a href="pages/single-blog.html">
+                    <a href='pages/single-blog.html?index=${index}'>
                       <h3>${element.blogTitle}</h3></a
                     >
                     <p>

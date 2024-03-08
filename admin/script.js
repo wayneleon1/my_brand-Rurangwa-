@@ -1,3 +1,13 @@
+// Display Current Date
+const CurrentDate = new Date().toLocaleDateString("en-US", {
+  month: "short",
+  day: "2-digit",
+  year: "numeric",
+  hour: "numeric",
+  minute: "numeric",
+});
+document.querySelector("#currentDate").innerHTML = CurrentDate;
+
 // Check if the user is logged in
 var isLoggedIn = localStorage.getItem("isLoggedIn");
 if (!isLoggedIn) {
@@ -14,12 +24,14 @@ const sideLinks = document
     }
   });
 
+// NavBar for Dashboard
 const clickedBtn = document.querySelector(".logo_container");
 const tabContainer = document.querySelector(".tab-container");
 clickedBtn.onclick = function () {
   tabContainer.classList.toggle("open");
 };
 
+// Logout function
 const logout = () => {
   localStorage.removeItem("isLoggedIn");
   window.location.href = "../pages/signin.html";

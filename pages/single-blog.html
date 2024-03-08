@@ -13,6 +13,7 @@
     />
     <link rel="stylesheet" href="/style.css" />
     <title>Portfolio</title>
+    <script defer src="/admin/js/validate_comments-form.js"></script>
   </head>
   <body>
     <header>
@@ -22,12 +23,12 @@
         </div>
         <div class="links-container">
           <ul>
-            <li><a href="/index.html/#">Home</a></li>
-            <li><a href="/index.html/#About">About</a></li>
-            <li><a href="/index.html/#Services">Services</a></li>
-            <li><a href="/index.html/#Portfolio">Portfolio</a></li>
-            <li><a href="/index.html/#Blogs">Blogs</a></li>
-            <li><a href="/index.html/#Contact">Contact</a></li>
+            <li><a href="../index.html#">Home</a></li>
+            <li><a href="/index.html#About">About</a></li>
+            <li><a href="/index.html#Services">Services</a></li>
+            <li><a href="/index.html#Portfolio">Portfolio</a></li>
+            <li><a href="/index.html#Blogs">Blogs</a></li>
+            <li><a href="/index.html#Contact">Contact</a></li>
           </ul>
           <div class="btn_container">
             <a href="/pages/signin.html" class="btn">Login</a>
@@ -39,12 +40,12 @@
       </nav>
       <div class="dropdown-menu">
         <ul>
-          <li><a href="/index.html/#">Home</a></li>
-          <li><a href="/index.html/#About">About</a></li>
-          <li><a href="/index.html/#Services">Services</a></li>
-          <li><a href="/index.html/#Portfolio">Portfolio</a></li>
-          <li><a href="/index.html/#Blogs">Blogs</a></li>
-          <li><a href="/index.html/#Contact">Contact</a></li>
+          <li><a href="/index.html#">Home</a></li>
+          <li><a href="/index.html#About">About</a></li>
+          <li><a href="/index.html#Services">Services</a></li>
+          <li><a href="/index.html#Portfolio">Portfolio</a></li>
+          <li><a href="/index.html#Blogs">Blogs</a></li>
+          <li><a href="/index.html#Contact">Contact</a></li>
           <li>
             <a href="pages/signin.html"> <button class="btn">Login</button></a>
           </li>
@@ -55,7 +56,7 @@
       <section class="single-blog-wrap">
         <div class="single-blog-titles">
           <div>
-            <h2>Improve your work performance</h2>
+            <h2 id="blogTitle"></h2>
           </div>
           <div class="single-blog-titles-icon">
             <div>
@@ -64,98 +65,51 @@
             </div>
             <div>
               <i class="fa-regular fa-calendar-days"></i>
-              <p>June 9, 2022 </p>
+              <p id="publishedDate"></p>
             </div>
             <div>
               <i class="fa-solid fa-tag"></i>
-              <p>Businesss</p>
+              <p id="blogCategory"></p>
             </div>
           </div>
           <div class="line"></div>
         </div>
         <div class="blog-img">
-          <img src="/images/blogs/Rectangle 19.png" alt="Blog" />
+          <img src="" id="featuredImage" alt="Blog" />
         </div>
         <div class="blog-description">
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum.
-          </p>
-          <p>
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-            nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum.
-          </p>
-          <h4>Lorem ipsum dolor sit amet</h4>
-          <p>
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-            nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum.
-          </p>
+          <p id="blogContent"></p>
         </div>
         <div class="line-through"></div>
         <div class="comments-wrap">
           <div class="comments">
-            <h4>2 Comments</h4>
-            <div class="posted-comments">
-              <div class="comment-item">
-                <div class="comment-user-profile">
-                  <img src="/images/icons/Profile.png" alt="user-profile" />
-                </div>
-                <div class="comment-content">
-                  <h5>Mikasa John – June 9, 2022</h5>
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                    do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua.
-                  </p>
-                </div>
-              </div>
-              <div class="comment-item">
-                <div class="comment-user-profile">
-                  <img src="/images/icons/Profile.png" alt="user-profile" />
-                </div>
-                <div class="comment-content">
-                  <h5>Mikasa John – June 9, 2022</h5>
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                    do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua.
-                  </p>
-                </div>
-              </div>
-            </div>
+            <h5 id="totalComments"></h5>
+            <div class="posted-comments" id="posted-comments"></div>
           </div>
           <div class="comment-form">
             <h4>Leave a Comment</h4>
-            <p>
-              Your email address will not be published. Required fields are
-              marked *
-            </p>
-            <form action="" class="form-input-container">
-              <div>
+            <p>Your email address will not be published.</p>
+            <form class="form-input-container" id="comment-form">
+              <div class="first-child">
+                <div class="input-group-element">
+                  <input type="text" placeholder="Your Name" id="names" />
+                  <div class="error"></div>
+                </div>
+                <div class="input-group-element">
+                  <input type="text" placeholder="Your Email" id="email" />
+                  <div class="error"></div>
+                </div>
+              </div>
+              <div class="input-group-element">
                 <textarea
-                  name="message"
-                  id=""
+                  id="contentMsg"
                   cols="30"
                   rows="5"
-                  placeholder="Comment"
+                  placeholder="Comment..."
                 ></textarea>
+                <div class="error"></div>
               </div>
-              <div class="first-child">
-                <div><input type="text" placeholder="Your Name" /></div>
-                <div><input type="text" placeholder="Your Email" /></div>
-              </div>
-              <div><button class="btn">Submit</button></div>
+              <div><button class="btn" type="submit">Submit</button></div>
             </form>
           </div>
         </div>
@@ -165,5 +119,53 @@
       <p>© Copyright. All Rights Reserved</p>
     </footer>
     <script src="/script.js"></script>
+    <script>
+      // Parse the URL to extract the index parameter
+      const urlParams = new URLSearchParams(window.location.search);
+      const index = parseInt(urlParams.get("index")); // Parse index as integer
+      const blogPost = JSON.parse(localStorage.getItem("blogList"))[index];
+
+      let blogTitle = blogPost.blogTitle;
+      let blogCategory = blogPost.category;
+      let blogContent = blogPost.blogContent;
+      let featuredImage = blogPost.photo;
+      let publishedDate = blogPost.timestamp;
+      let comments = blogPost.comments.length;
+      let totalComments =
+        comments > 0 ? comments + " Comments" : "No comments added yet!";
+
+      document.querySelector("#blogTitle").innerHTML = blogTitle;
+      document.querySelector("#publishedDate").innerHTML = publishedDate;
+      document.querySelector("#blogCategory").innerHTML = blogCategory;
+      document.querySelector("#blogContent").innerHTML = blogContent;
+      document
+        .querySelector("#featuredImage")
+        .setAttribute("src", featuredImage);
+      document.querySelector("#totalComments").innerHTML = totalComments;
+
+      // Dispaly added comments
+      function showComments() {
+        let Comments = blogPost.comments;
+        if (Comments == null) {
+          Comments = [];
+        }
+        let html_Comment = "";
+        Comments.forEach((element, index) => {
+          html_Comment += ` <div class="comment-item">
+                <div class="comment-user-profile">
+                  <img src="/images/icons/Profile.png" alt="user-profile" />
+                </div>
+                <div class="comment-content">
+                  <h5>${element.names} – ${element.timestamp}</h5>
+                  <p>
+                    ${element.contentMsg}
+                  </p>
+                </div>
+              </div>`;
+        });
+        document.querySelector("#posted-comments").innerHTML = html_Comment;
+      }
+      document.onload = showComments();
+    </script>
   </body>
 </html>

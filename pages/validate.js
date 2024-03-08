@@ -22,6 +22,7 @@ const setSuccess = (element) => {
   inputControl.classList.add("success");
   inputControl.classList.remove("error");
 };
+// validate function
 const validateInputs = () => {
   let checkEmail =
     /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
@@ -49,6 +50,7 @@ const validateInputs = () => {
   return true;
 };
 
+// Login Function
 const userAuthentication = () => {
   let email = document.getElementById("email").value;
   let password = document.getElementById("password").value;
