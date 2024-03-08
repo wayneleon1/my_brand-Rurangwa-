@@ -115,7 +115,7 @@ function addData() {
         password: password,
         email: email,
         photo: photoData,
-        role: "user",
+        role: "Subcribor",
         timestamp: new Date().toDateString(),
       });
 
