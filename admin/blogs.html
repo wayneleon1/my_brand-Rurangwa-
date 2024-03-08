@@ -212,9 +212,9 @@
             element.photo +
             ' alt="Photo" /></td>';
           html +=
-            "<td>" +
-            element.comments.length +
-            '<i class="fa-solid fa-comments"></i></td>';
+            `<td><buttton onclick="showComments(` +
+            index +
+            `)"> ${element.comments.length} <i class="fa-solid fa-comments"></i></button> </td>`;
           html += "<td> admin </td>";
           html += "<td>" + element.timestamp + "</td>";
 
@@ -278,9 +278,13 @@
           alert("Blog updated successfully!");
         };
       }
+      // show Comments / Crud
+      function showComments(index) {
+        // modal.style.display = "block";
+        console.log("Testing");
+      }
       // Show  modal
       let modal = document.getElementById("myModal");
-      let btn = document.getElementById("openModalBtn");
       let span = document.getElementsByClassName("close")[0];
 
       // When the user clicks on <span> (x), close the modal
